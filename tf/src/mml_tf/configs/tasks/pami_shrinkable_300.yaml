@@ -1,0 +1,85 @@
+# @package _global_
+
+# all shrinkable task set for PAMI 2022, tagged!
+
+task_list:
+  - 'lapgyn4_anatomical_structures'
+  - 'lapgyn4_surgical_actions'
+  - 'lapgyn4_instrument_count'
+  - 'lapgyn4_anatomical_actions'
+  #  - 'sklin2_skin_lesions'  -> too small
+  - 'identify_nbi_infframes'
+  - 'laryngeal_tissues'
+  - 'nerthus_bowel_cleansing_quality'
+  #  - 'stanford_dogs_image_categorization'  #-> too many classes
+  - 'svhn'
+  #  - 'caltech101_object_classification'  #-> too many classes
+  #  - 'caltech256_object_classification'  #-> too many classes
+  - 'cifar10_object_classification'
+  #  - 'cifar100_object_classification'  #-> too many classes
+  - 'mnist_digit_classification'
+  #  - 'emnist_digit_classification'  #-> too many classes
+  - 'hyperkvasir_anatomical-landmarks'
+  - 'hyperkvasir_pathological-findings'
+  - 'hyperkvasir_quality-of-mucosal-views'
+  - 'hyperkvasir_therapeutic-interventions'
+  - 'cholec80_grasper_presence'
+  - 'cholec80_bipolar_presence'
+  - 'cholec80_hook_presence'
+  - 'cholec80_scissors_presence'
+  - 'cholec80_clipper_presence'
+  - 'cholec80_irrigator_presence'
+  - 'cholec80_specimenbag_presence'
+  - 'idle_action_recognition'
+  #  - 'barretts_esophagus_diagnosis'  -> too small
+  - 'brain_tumor_classification'
+  #  - 'mednode_melanoma_classification'  -> too small
+  - 'brain_tumor_type_classification'
+  - 'chexpert_enlarged_cardiomediastinum'
+  - 'chexpert_cardiomegaly'
+  - 'chexpert_lung_opacity'
+  - 'chexpert_lung_lesion'
+  - 'chexpert_edema'
+  - 'chexpert_consolidation'
+  - 'chexpert_pneumonia'
+  - 'chexpert_atelectasis'
+  - 'chexpert_pneumothorax'
+  - 'chexpert_pleural_effusion'
+  - 'chexpert_pleural_other'
+  - 'chexpert_fracture'
+  - 'chexpert_support_devices'
+  - 'covid-19-chest-ct-image-augmentation_raw'
+  - 'pneumonia_classification'
+  #  - 'ph2-melanocytic-lesions-classification'  -> too small
+  - 'derm7pt_skin_lesions'
+  - 'covid_xray_classification'
+  - 'isic20_melanoma_classification'
+  - 'deep_drid_dr_level'
+  - 'shenzen_chest_xray_tuberculosis'
+  - 'crawled_covid_ct_classification'
+  - 'deep_drid_quality'
+  - 'deep_drid_clarity'
+  - 'deep_drid_field'
+  - 'deep_drid_artifact'
+  - 'kvasir_capsule_anatomy'
+  - 'kvasir_capsule_content'
+  - 'kvasir_capsule_pathologies'
+  - 'breast_cancer_classification_v2'
+  - 'eye_condition_classification'
+  - 'mura_xr_wrist'
+  - 'mura_xr_shoulder'
+  - 'mura_xr_humerus'
+  - 'mura_xr_hand'
+  - 'mura_xr_forearm'
+  - 'mura_xr_finger'
+  - 'mura_xr_elbow'
+  - 'bean_plant_disease_classification'
+  - 'aptos19_blindness_detection'
+
+pivot:
+  name: False
+  tags: ''
+
+tagging:
+  all: '+shrink_train?300'
+  variants: [ ]

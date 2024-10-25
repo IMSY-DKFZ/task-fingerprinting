@@ -1,0 +1,40 @@
+# @package _global_
+
+# train task set for PAMI 2022 (pivot gets the shrink tag!)
+
+task_list:
+  - 'lapgyn4_anatomical_structures'
+  - 'lapgyn4_surgical_actions'
+  - 'lapgyn4_instrument_count'
+  - 'lapgyn4_anatomical_actions'
+  - 'sklin2_skin_lesions'
+  - 'identify_nbi_infframes'
+  - 'laryngeal_tissues'
+  - 'nerthus_bowel_cleansing_quality'
+  - 'stanford_dogs_image_categorization'
+  - 'svhn'
+  - 'caltech101_object_classification'
+  - 'caltech256_object_classification'
+  - 'cifar10_object_classification'
+  - 'cifar100_object_classification'
+  - 'mnist_digit_classification'
+  - 'emnist_digit_classification'
+  - 'hyperkvasir_anatomical-landmarks'
+  - 'hyperkvasir_pathological-findings'
+  - 'hyperkvasir_quality-of-mucosal-views'
+  - 'hyperkvasir_therapeutic-interventions'
+  - 'cholec80_grasper_presence'
+  - 'cholec80_bipolar_presence'
+  - 'cholec80_hook_presence'
+  - 'cholec80_scissors_presence'
+  - 'cholec80_clipper_presence'
+  - 'cholec80_irrigator_presence'
+  - 'cholec80_specimenbag_presence'
+  - 'derm7pt_skin_lesions'
+
+pivot:
+  name: False
+  tags: '+shrink_train?800'
+tagging:
+  all: False
+  variants: [ ]

@@ -1,0 +1,6 @@
+mml create tasks=pami proj=pami2_base_02
+sleep 2
+mml pp tasks=pami proj=pami2_base_02
+sleep 2
+mml info tasks=pami_shrinkable_800 proj=pami2_base_02
+sleep 2

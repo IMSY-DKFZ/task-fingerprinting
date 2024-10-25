@@ -1,0 +1,56 @@
+# @package _global_
+
+# test task set for PAMI 2022
+
+task_list:
+  - 'idle_action_recognition'
+  - 'barretts_esophagus_diagnosis'
+  - 'brain_tumor_classification'
+  - 'mednode_melanoma_classification'
+  - 'brain_tumor_type_classification'
+  - 'chexpert_enlarged_cardiomediastinum'
+  - 'chexpert_cardiomegaly'
+  - 'chexpert_lung_opacity'
+  - 'chexpert_lung_lesion'
+  - 'chexpert_edema'
+  - 'chexpert_consolidation'
+  - 'chexpert_pneumonia'
+  - 'chexpert_atelectasis'
+  - 'chexpert_pneumothorax'
+  - 'chexpert_pleural_effusion'
+  - 'chexpert_pleural_other'
+  - 'chexpert_fracture'
+  - 'chexpert_support_devices'
+  - 'covid-19-chest-ct-image-augmentation_raw'
+  - 'pneumonia_classification'
+  - 'ph2-melanocytic-lesions-classification'
+  - 'covid_xray_classification'
+  - 'isic20_melanoma_classification'
+  - 'deep_drid_dr_level'
+  - 'shenzen_chest_xray_tuberculosis'
+  - 'crawled_covid_ct_classification'
+  - 'deep_drid_quality'
+  - 'deep_drid_clarity'
+  - 'deep_drid_field'
+  - 'deep_drid_artifact'
+  - 'kvasir_capsule_anatomy'
+  - 'kvasir_capsule_content'
+  - 'kvasir_capsule_pathologies'
+  - 'breast_cancer_classification_v2'
+  - 'eye_condition_classification'
+  - 'mura_xr_wrist'
+  - 'mura_xr_shoulder'
+  - 'mura_xr_humerus'
+  - 'mura_xr_hand'
+  - 'mura_xr_forearm'
+  - 'mura_xr_finger'
+  - 'mura_xr_elbow'
+  - 'bean_plant_disease_classification'
+  - 'aptos19_blindness_detection'
+
+pivot:
+  name: False
+  tags: ''
+tagging:
+  all: False
+  variants: [ ]

@@ -1,0 +1,72 @@
+,name,task_types,num_classes,num_samples,domains,imbalance_ratios,datasets,keywords,dimensions,max_resolution,min_resolution
+0,aptos19_blindness_detection,classification,5,3662,fundus_photography,9.352331606217616,aptos_blindness,"['eye', 'fundus_photography', 'medical']",7,12212224,169692
+1,barretts_esophagus_diagnosis,classification,3,262,confocal laser endomicroscopy,5.733333333333333,barretts_esophagus,"['confocal laser endomicroscopy', 'endoscopy', 'medical', 'tissue_pathology']",11,1048576,1048576
+2,bean_plant_disease_classification,classification,3,1167,natural_objects,1.0207792207792208,ibean,['natural_objects'],25,250000,250000
+3,brain_tumor_classification,classification,2,3762,mri_scan,1.2352941176470589,brain_tumor,"['brain', 'medical', 'mri_scan', 'tissue_pathology']",8,57600,57600
+4,brain_tumor_type_classification,classification,3,3064,mri_scan,2.0141242937853105,brain_tumor_type,"['brain', 'medical', 'mri_scan', 'tissue_pathology']",14,262144,65536
+5,breast_cancer_classification_v2,classification,3,780,ultrasound,3.2857142857142856,breast_ultrasound,"['breast', 'medical', 'ultrasound']",14,753512,58900
+6,caltech101_object_classification,classification,101,8677,natural_objects,25.806451612903224,caltech101,['natural_objects'],14,349752,7360
+7,caltech256_object_classification,classification,257,30607,natural_objects,10.3375,caltech256,['natural_objects'],14,62615569,5625
+8,chexpert_atelectasis,classification,2,34704,x_ray,25.132530120481928,chexpert,"['chest', 'medical', 'tissue_pathology', 'x_ray']",14,306850,102400
+9,chexpert_cardiomegaly,classification,2,38116,x_ray,2.428931270241094,chexpert,"['chest', 'medical', 'tissue_pathology', 'x_ray']",14,326864,102400
+10,chexpert_consolidation,classification,2,42880,x_ray,1.9006291009943854,chexpert,"['chest', 'medical', 'tissue_pathology', 'x_ray']",14,366266,102400
+11,chexpert_edema,classification,2,72972,x_ray,2.5207951365434718,chexpert,"['chest', 'medical', 'tissue_pathology', 'x_ray']",14,463524,102400
+12,chexpert_enlarged_cardiomediastinum,classification,2,32436,x_ray,2.0038896091868863,chexpert,"['chest', 'medical', 'tissue_pathology', 'x_ray']",13,323676,102400
+13,chexpert_fracture,classification,2,11552,x_ray,3.5987261146496814,chexpert,"['chest', 'medical', 'tissue_pathology', 'x_ray']",14,364500,102400
+14,chexpert_lung_lesion,classification,2,10456,x_ray,7.233070866141732,chexpert,"['chest', 'medical', 'tissue_pathology', 'x_ray']",13,228459,102400
+15,chexpert_lung_opacity,classification,2,112180,x_ray,15.999545385664495,chexpert,"['chest', 'medical', 'tissue_pathology', 'x_ray']",14,397600,102400
+16,chexpert_pleural_effusion,classification,2,121583,x_ray,2.4349361509775114,chexpert,"['chest', 'medical', 'tissue_pathology', 'x_ray']",14,513600,102400
+17,chexpert_pleural_other,classification,2,3839,x_ray,11.14873417721519,chexpert,"['chest', 'medical', 'tissue_pathology', 'x_ray']",14,478932,102400
+18,chexpert_pneumonia,classification,2,8838,x_ray,2.157556270096463,chexpert,"['chest', 'medical', 'tissue_pathology', 'x_ray']",14,225078,102400
+19,chexpert_pneumothorax,classification,2,75789,x_ray,2.8970074043603455,chexpert,"['chest', 'medical', 'tissue_pathology', 'x_ray']",14,460350,102400
+20,chexpert_support_devices,classification,2,122138,x_ray,18.901906468958774,chexpert,"['chest', 'medical', 'tissue_pathology', 'x_ray']",15,597060,102400
+21,cholec80_bipolar_presence,classification,2,89910,laparoscopy,22.524332810047095,cholec80,"['endoscopic instruments', 'endoscopy', 'laparoscopy', 'medical']",17,2073600,409920
+22,cholec80_clipper_presence,classification,2,89910,laparoscopy,30.110726643598618,cholec80,"['endoscopic instruments', 'endoscopy', 'laparoscopy', 'medical']",17,2073600,409920
+23,cholec80_grasper_presence,classification,2,89910,laparoscopy,1.2208225268618007,cholec80,"['endoscopic instruments', 'endoscopy', 'laparoscopy', 'medical']",17,2073600,409920
+24,cholec80_hook_presence,classification,2,89910,laparoscopy,1.3154180937910431,cholec80,"['endoscopic instruments', 'endoscopy', 'laparoscopy', 'medical']",17,2073600,409920
+25,cholec80_irrigator_presence,classification,2,89910,laparoscopy,22.389698231009366,cholec80,"['endoscopic instruments', 'endoscopy', 'laparoscopy', 'medical']",17,2073600,409920
+26,cholec80_scissors_presence,classification,2,89910,laparoscopy,55.158650843222986,cholec80,"['endoscopic instruments', 'endoscopy', 'laparoscopy', 'medical']",17,2073600,409920
+27,cholec80_specimenbag_presence,classification,2,89910,laparoscopy,15.743016759776536,cholec80,"['endoscopic instruments', 'endoscopy', 'laparoscopy', 'medical']",17,2073600,409920
+28,cifar100_object_classification,classification,100,50000,natural_objects,1.0,cifar100,['natural_objects'],13,1024,1024
+29,cifar10_object_classification,classification,10,50000,natural_objects,1.0,cifar10,['natural_objects'],14,1024,1024
+30,covid_xray_classification,classification,2,3091,x_ray,1.3758647194465796,covid_xray,"['chest', 'medical', 'tissue_pathology', 'x_ray']",14,7765308,48768
+31,crawled_covid_ct_classification,classification,2,746,ct_scan,1.1375358166189111,covid_ct_crawled,"['chest', 'ct_scan', 'medical', 'tissue_pathology']",12,2046975,7015
+32,deep_drid_artifact,classification,6,1200,fundus_photography,16.18918918918919,deep_drid,"['eye', 'fundus_photography', 'image_artefacts', 'medical']",6,4428288,2746200
+33,deep_drid_clarity,classification,5,1200,fundus_photography,14.862068965517242,deep_drid,"['eye', 'fundus_photography', 'image_artefacts', 'medical']",6,4428288,2746200
+34,deep_drid_dr_level,classification,5,1200,fundus_photography,7.5,deep_drid,"['eye', 'fundus_photography', 'medical', 'tissue_pathology']",6,4428288,2746200
+35,deep_drid_field,classification,5,1200,fundus_photography,114.42857142857143,deep_drid,"['eye', 'fundus_photography', 'medical']",6,4428288,2746200
+36,deep_drid_quality,classification,2,1200,fundus_photography,1.0833333333333333,deep_drid,"['eye', 'fundus_photography', 'image_artefacts', 'medical']",6,4428288,2746200
+37,derm7pt_skin_lesions,classification,5,616,dermatoscopy,13.692307692307692,derm7pt,"['dermatoscopy', 'medical', 'tissue_pathology']",9,393216,242688
+38,emnist_digit_classification,classification,47,112800,handwritings,1.0,emnist,"['chars_or_digits', 'handwritings']",10,784,784
+39,eye_condition_classification,classification,4,601,cataract_surgery,3.0,cataract,"['cataract_surgery', 'eye', 'medical']",6,4478976,2261952
+40,hyperkvasir_anatomical-landmarks,classification,6,4104,gastroscopy_colonoscopy,112.11111111111111,hyperkvasir,"['anatomical structures', 'gastroscopy_colonoscopy', 'medical']",11,1455571,200096
+41,hyperkvasir_pathological-findings,classification,12,2642,gastroscopy_colonoscopy,171.33333333333334,hyperkvasir,"['gastroscopy_colonoscopy', 'medical', 'tissue_pathology']",9,2071680,116864
+42,hyperkvasir_quality-of-mucosal-views,classification,3,1925,gastroscopy_colonoscopy,8.763358778625955,hyperkvasir,"['gastroscopy_colonoscopy', 'medical']",4,1444779,184008
+43,hyperkvasir_therapeutic-interventions,classification,2,1991,gastroscopy_colonoscopy,1.01314459049545,hyperkvasir,"['gastroscopy_colonoscopy', 'medical']",17,1455571,161500
+44,identify_nbi_infframes,classification,4,720,laryngoscopy,1.0,nbi_infframes,"['endoscopy', 'image_artefacts', 'laryngoscopy', 'medical']",4,1852416,1395900
+45,idle_action_recognition,classification,2,18000,cataract_surgery,1.0,idle_action,"['cataract_surgery', 'eye', 'medical']",7,388800,388800
+46,isic20_melanoma_classification,classification,2,32701,dermatoscopy,55.28399311531842,isic20,"['dermatoscopy', 'medical', 'tissue_pathology']",10,36000000,307200
+47,kvasir_capsule_anatomy,classification,2,5718,capsule endoscopy,2.7396991497710923,kvasir_capsule,"['anatomical structures', 'capsule endoscopy', 'endoscopy', 'medical']",7,112896,112896
+48,kvasir_capsule_content,classification,4,38466,capsule endoscopy,76.99103139013452,kvasir_capsule,"['capsule endoscopy', 'endoscopy', 'medical']",11,112896,112896
+49,kvasir_capsule_pathologies,classification,5,37156,capsule endoscopy,67.86166007905139,kvasir_capsule,"['capsule endoscopy', 'endoscopy', 'medical', 'tissue_pathology']",11,112896,112896
+50,lapgyn4_anatomical_actions,classification,4,4782,laparoscopy,2.9523809523809526,lapgyn4,"['gynecology', 'anatomical structures', 'laparoscopy', 'medical']",19,327680,230400
+51,lapgyn4_anatomical_structures,classification,5,2728,laparoscopy,8.420289855072463,lapgyn4,"['gynecology', 'anatomical structures', 'laparoscopy', 'medical']",13,1166400,1166400
+52,lapgyn4_instrument_count,classification,4,21424,laparoscopy,1.1234326018808778,lapgyn4,"['gynecology', 'counting endoscopic instruments', 'endoscopic instruments', 'laparoscopy', 'medical']",19,2073600,172800
+53,lapgyn4_surgical_actions,classification,8,30682,laparoscopy,10.89789029535865,lapgyn4,"['gynecology', 'endoscopic instruments', 'laparoscopy', 'medical']",20,1166400,1166400
+54,laryngeal_tissues,classification,4,1320,laryngoscopy,1.0,laryngeal,"['endoscopy', 'laryngoscopy', 'medical', 'tissue_pathology']",7,10404,9800
+55,mednode_melanoma_classification,classification,2,170,dermatoscopy,1.4285714285714286,mednode,"['dermatoscopy', 'medical', 'tissue_pathology']",8,6230097,51657
+56,mnist_digit_classification,classification,10,60000,handwritings,1.243681977494927,mnist,"['chars_or_digits', 'handwritings']",8,784,784
+57,mura_xr_elbow,classification,2,4931,x_ray,1.4581256231306081,mura,"['bone', 'medical', 'tissue_pathology', 'x_ray']",12,262144,37018
+58,mura_xr_finger,classification,2,5106,x_ray,1.5945121951219512,mura,"['bone', 'medical', 'tissue_pathology', 'x_ray']",13,262144,14418
+59,mura_xr_forearm,classification,2,1825,x_ray,1.7609682299546143,mura,"['bone', 'medical', 'tissue_pathology', 'x_ray']",10,262144,15444
+60,mura_xr_hand,classification,2,5543,x_ray,2.7351752021563343,mura,"['bone', 'medical', 'tissue_pathology', 'x_ray']",13,262144,43520
+61,mura_xr_humerus,classification,2,1272,x_ray,1.1235392320534223,mura,"['bone', 'medical', 'tissue_pathology', 'x_ray']",10,262144,30624
+62,mura_xr_shoulder,classification,2,8379,x_ray,1.01031669865643,mura,"['bone', 'medical', 'tissue_pathology', 'x_ray']",10,262144,31312
+63,mura_xr_wrist,classification,2,9752,x_ray,1.4459493353398545,mura,"['bone', 'medical', 'tissue_pathology', 'x_ray']",12,262144,29213
+64,nerthus_bowel_cleansing_quality,classification,4,5525,gastroscopy_colonoscopy,5.4,nerthus,"['endoscopy', 'gastroscopy_colonoscopy', 'medical']",5,414720,414720
+65,ph2-melanocytic-lesions-classification,classification,3,200,dermatoscopy,2.0,PH2,"['dermatoscopy', 'medical', 'tissue_pathology']",7,443713,420833
+66,pneumonia_classification,classification,2,5232,x_ray,2.878428465530022,pneumonia,"['chest', 'medical', 'tissue_pathology', 'x_ray']",14,7765308,48768
+67,shenzen_chest_xray_tuberculosis,classification,2,662,x_ray,1.030674846625767,shenzhen_xray_tb,"['chest', 'medical', 'tissue_pathology', 'x_ray']",10,9006001,1071240
+68,sklin2_skin_lesions,classification,8,280,dermatoscopy,19.4,sklin2,"['dermatoscopy', 'medical', 'tissue_pathology']",10,2073600,2073600
+69,stanford_dogs_image_categorization,classification,119,20429,natural_objects,1.7027027027027026,stanford_dogs,"['animals', 'natural_objects']",18,8362368,9700
+70,svhn,classification,10,73257,natural_objects,2.975101953208843,svhn,"['chars_or_digits', 'natural_objects']",11,1024,1024

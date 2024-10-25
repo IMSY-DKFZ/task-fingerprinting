@@ -1,0 +1,2 @@
+mml dim tasks=pami_shrink_mix proj=pami2_base_02 mode.inv_mle=True
+sleep 2

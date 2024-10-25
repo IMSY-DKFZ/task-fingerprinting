@@ -1,0 +1,520 @@
+mml train tasks=pami pivot.name=kvasir_capsule_content mode.cv=False mode.nested=False mode.store_parameters=False sampling.balanced=True sampling.batch_size=300 callbacks=none lr_scheduler=step +trainer.check_val_every_n_epoch=39 trainer.max_epochs=39 augmentations=baseline256 sampling.enable_caching=True proj=pami2_t_arch_search_02_2 arch.timm.name=tf_efficientnet_b2 seed=2
+sleep 2
+mml train tasks=pami pivot.name=kvasir_capsule_content mode.cv=False mode.nested=False mode.store_parameters=False sampling.balanced=True sampling.batch_size=300 callbacks=none lr_scheduler=step +trainer.check_val_every_n_epoch=39 trainer.max_epochs=39 augmentations=baseline256 sampling.enable_caching=True proj=pami2_t_arch_search_02_2 arch.timm.name=tf_efficientnet_b2_ap seed=2
+sleep 2
+mml train tasks=pami pivot.name=kvasir_capsule_content mode.cv=False mode.nested=False mode.store_parameters=False sampling.balanced=True sampling.batch_size=300 callbacks=none lr_scheduler=step +trainer.check_val_every_n_epoch=39 trainer.max_epochs=39 augmentations=baseline256 sampling.enable_caching=True proj=pami2_t_arch_search_02_2 arch.timm.name=tf_efficientnet_b2_ns seed=2
+sleep 2
+mml train tasks=pami pivot.name=kvasir_capsule_content mode.cv=False mode.nested=False mode.store_parameters=False sampling.balanced=True sampling.batch_size=300 callbacks=none lr_scheduler=step +trainer.check_val_every_n_epoch=39 trainer.max_epochs=39 augmentations=baseline256 sampling.enable_caching=True proj=pami2_t_arch_search_02_2 arch.timm.name=tf_efficientnet_cc_b0_4e seed=2
+sleep 2
+mml train tasks=pami pivot.name=kvasir_capsule_content mode.cv=False mode.nested=False mode.store_parameters=False sampling.balanced=True sampling.batch_size=300 callbacks=none lr_scheduler=step +trainer.check_val_every_n_epoch=39 trainer.max_epochs=39 augmentations=baseline256 sampling.enable_caching=True proj=pami2_t_arch_search_02_2 arch.timm.name=swsl_resnet50 seed=2
+sleep 2
+mml train tasks=pami pivot.name=kvasir_capsule_content mode.cv=False mode.nested=False mode.store_parameters=False sampling.balanced=True sampling.batch_size=300 callbacks=none lr_scheduler=step +trainer.check_val_every_n_epoch=39 trainer.max_epochs=39 augmentations=baseline256 sampling.enable_caching=True proj=pami2_t_arch_search_02_2 arch.timm.name=ssl_resnext50_32x4d seed=2
+sleep 2
+mml train tasks=pami pivot.name=kvasir_capsule_content mode.cv=False mode.nested=False mode.store_parameters=False sampling.balanced=True sampling.batch_size=300 callbacks=none lr_scheduler=step +trainer.check_val_every_n_epoch=39 trainer.max_epochs=39 augmentations=baseline256 sampling.enable_caching=True proj=pami2_t_arch_search_02_2 arch.timm.name=regnetx_032 seed=2
+sleep 2
+mml train tasks=pami pivot.name=kvasir_capsule_content mode.cv=False mode.nested=False mode.store_parameters=False sampling.balanced=True sampling.batch_size=300 callbacks=none lr_scheduler=step +trainer.check_val_every_n_epoch=39 trainer.max_epochs=39 augmentations=baseline256 sampling.enable_caching=True proj=pami2_t_arch_search_02_2 arch.timm.name=regnety_032 seed=2
+sleep 2
+mml train tasks=pami pivot.name=kvasir_capsule_content mode.cv=False mode.nested=False mode.store_parameters=False sampling.balanced=True sampling.batch_size=300 callbacks=none lr_scheduler=step +trainer.check_val_every_n_epoch=39 trainer.max_epochs=39 augmentations=baseline256 sampling.enable_caching=True proj=pami2_t_arch_search_02_2 arch.timm.name=rexnet_100 seed=2
+sleep 2
+mml train tasks=pami pivot.name=kvasir_capsule_content mode.cv=False mode.nested=False mode.store_parameters=False sampling.balanced=True sampling.batch_size=300 callbacks=none lr_scheduler=step +trainer.check_val_every_n_epoch=39 trainer.max_epochs=39 augmentations=baseline256 sampling.enable_caching=True proj=pami2_t_arch_search_02_2 arch.timm.name=ecaresnet50d seed=2
+sleep 2
+mml train tasks=pami pivot.name=kvasir_capsule_content mode.cv=False mode.nested=False mode.store_parameters=False sampling.balanced=True sampling.batch_size=300 callbacks=none lr_scheduler=step +trainer.check_val_every_n_epoch=39 trainer.max_epochs=39 augmentations=baseline256 sampling.enable_caching=True proj=pami2_t_arch_search_02_2 arch.timm.name=cspdarknet53 seed=2
+sleep 2
+mml train tasks=pami pivot.name=kvasir_capsule_content mode.cv=False mode.nested=False mode.store_parameters=False sampling.balanced=True sampling.batch_size=300 callbacks=none lr_scheduler=step +trainer.check_val_every_n_epoch=39 trainer.max_epochs=39 augmentations=baseline256 sampling.enable_caching=True proj=pami2_t_arch_search_02_2 arch.timm.name=mixnet_l seed=2
+sleep 2
+mml train tasks=pami pivot.name=kvasir_capsule_content mode.cv=False mode.nested=False mode.store_parameters=False sampling.balanced=True sampling.batch_size=300 callbacks=none lr_scheduler=step +trainer.check_val_every_n_epoch=39 trainer.max_epochs=39 augmentations=baseline256 sampling.enable_caching=True proj=pami2_t_arch_search_02_2 arch.timm.name=cspresnext50 seed=2
+sleep 2
+mml train tasks=pami pivot.name=kvasir_capsule_content mode.cv=False mode.nested=False mode.store_parameters=False sampling.balanced=True sampling.batch_size=300 callbacks=none lr_scheduler=step +trainer.check_val_every_n_epoch=39 trainer.max_epochs=39 augmentations=baseline256 sampling.enable_caching=True proj=pami2_t_arch_search_02_2 arch.timm.name=cspresnet50 seed=2
+sleep 2
+mml train tasks=pami pivot.name=kvasir_capsule_content mode.cv=False mode.nested=False mode.store_parameters=False sampling.balanced=True sampling.batch_size=300 callbacks=none lr_scheduler=step +trainer.check_val_every_n_epoch=39 trainer.max_epochs=39 augmentations=baseline256 sampling.enable_caching=True proj=pami2_t_arch_search_02_2 arch.timm.name=ese_vovnet39b seed=2
+sleep 2
+mml train tasks=pami pivot.name=kvasir_capsule_content mode.cv=False mode.nested=False mode.store_parameters=False sampling.balanced=True sampling.batch_size=300 callbacks=none lr_scheduler=step +trainer.check_val_every_n_epoch=39 trainer.max_epochs=39 augmentations=baseline256 sampling.enable_caching=True proj=pami2_t_arch_search_02_2 arch.timm.name=resnest50d seed=2
+sleep 2
+mml train tasks=pami pivot.name=kvasir_capsule_content mode.cv=False mode.nested=False mode.store_parameters=False sampling.balanced=True sampling.batch_size=300 callbacks=none lr_scheduler=step +trainer.check_val_every_n_epoch=39 trainer.max_epochs=39 augmentations=baseline256 sampling.enable_caching=True proj=pami2_t_arch_search_02_2 arch.timm.name=hrnet_w18 seed=2
+sleep 2
+mml train tasks=pami pivot.name=kvasir_capsule_content mode.cv=False mode.nested=False mode.store_parameters=False sampling.balanced=True sampling.batch_size=300 callbacks=none lr_scheduler=step +trainer.check_val_every_n_epoch=39 trainer.max_epochs=39 augmentations=baseline256 sampling.enable_caching=True proj=pami2_t_arch_search_02_2 arch.timm.name=skresnet34 seed=2
+sleep 2
+mml train tasks=pami pivot.name=kvasir_capsule_content mode.cv=False mode.nested=False mode.store_parameters=False sampling.balanced=True sampling.batch_size=300 callbacks=none lr_scheduler=step +trainer.check_val_every_n_epoch=39 trainer.max_epochs=39 augmentations=baseline256 sampling.enable_caching=True proj=pami2_t_arch_search_02_2 arch.timm.name=mobilenetv3_large_100 seed=2
+sleep 2
+mml train tasks=pami pivot.name=kvasir_capsule_content mode.cv=False mode.nested=False mode.store_parameters=False sampling.balanced=True sampling.batch_size=300 callbacks=none lr_scheduler=step +trainer.check_val_every_n_epoch=39 trainer.max_epochs=39 augmentations=baseline256 sampling.enable_caching=True proj=pami2_t_arch_search_02_2 arch.timm.name=res2net50_26w_4s seed=2
+sleep 2
+mml train tasks=pami pivot.name=kvasir_capsule_pathologies mode.cv=False mode.nested=False mode.store_parameters=False sampling.balanced=True sampling.batch_size=300 callbacks=none lr_scheduler=step +trainer.check_val_every_n_epoch=40 trainer.max_epochs=40 augmentations=baseline256 sampling.enable_caching=True proj=pami2_t_arch_search_02_2 arch.timm.name=tf_efficientnet_b2 seed=2
+sleep 2
+mml train tasks=pami pivot.name=kvasir_capsule_pathologies mode.cv=False mode.nested=False mode.store_parameters=False sampling.balanced=True sampling.batch_size=300 callbacks=none lr_scheduler=step +trainer.check_val_every_n_epoch=40 trainer.max_epochs=40 augmentations=baseline256 sampling.enable_caching=True proj=pami2_t_arch_search_02_2 arch.timm.name=tf_efficientnet_b2_ap seed=2
+sleep 2
+mml train tasks=pami pivot.name=kvasir_capsule_pathologies mode.cv=False mode.nested=False mode.store_parameters=False sampling.balanced=True sampling.batch_size=300 callbacks=none lr_scheduler=step +trainer.check_val_every_n_epoch=40 trainer.max_epochs=40 augmentations=baseline256 sampling.enable_caching=True proj=pami2_t_arch_search_02_2 arch.timm.name=tf_efficientnet_b2_ns seed=2
+sleep 2
+mml train tasks=pami pivot.name=kvasir_capsule_pathologies mode.cv=False mode.nested=False mode.store_parameters=False sampling.balanced=True sampling.batch_size=300 callbacks=none lr_scheduler=step +trainer.check_val_every_n_epoch=40 trainer.max_epochs=40 augmentations=baseline256 sampling.enable_caching=True proj=pami2_t_arch_search_02_2 arch.timm.name=tf_efficientnet_cc_b0_4e seed=2
+sleep 2
+mml train tasks=pami pivot.name=kvasir_capsule_pathologies mode.cv=False mode.nested=False mode.store_parameters=False sampling.balanced=True sampling.batch_size=300 callbacks=none lr_scheduler=step +trainer.check_val_every_n_epoch=40 trainer.max_epochs=40 augmentations=baseline256 sampling.enable_caching=True proj=pami2_t_arch_search_02_2 arch.timm.name=swsl_resnet50 seed=2
+sleep 2
+mml train tasks=pami pivot.name=kvasir_capsule_pathologies mode.cv=False mode.nested=False mode.store_parameters=False sampling.balanced=True sampling.batch_size=300 callbacks=none lr_scheduler=step +trainer.check_val_every_n_epoch=40 trainer.max_epochs=40 augmentations=baseline256 sampling.enable_caching=True proj=pami2_t_arch_search_02_2 arch.timm.name=ssl_resnext50_32x4d seed=2
+sleep 2
+mml train tasks=pami pivot.name=kvasir_capsule_pathologies mode.cv=False mode.nested=False mode.store_parameters=False sampling.balanced=True sampling.batch_size=300 callbacks=none lr_scheduler=step +trainer.check_val_every_n_epoch=40 trainer.max_epochs=40 augmentations=baseline256 sampling.enable_caching=True proj=pami2_t_arch_search_02_2 arch.timm.name=regnetx_032 seed=2
+sleep 2
+mml train tasks=pami pivot.name=kvasir_capsule_pathologies mode.cv=False mode.nested=False mode.store_parameters=False sampling.balanced=True sampling.batch_size=300 callbacks=none lr_scheduler=step +trainer.check_val_every_n_epoch=40 trainer.max_epochs=40 augmentations=baseline256 sampling.enable_caching=True proj=pami2_t_arch_search_02_2 arch.timm.name=regnety_032 seed=2
+sleep 2
+mml train tasks=pami pivot.name=kvasir_capsule_pathologies mode.cv=False mode.nested=False mode.store_parameters=False sampling.balanced=True sampling.batch_size=300 callbacks=none lr_scheduler=step +trainer.check_val_every_n_epoch=40 trainer.max_epochs=40 augmentations=baseline256 sampling.enable_caching=True proj=pami2_t_arch_search_02_2 arch.timm.name=rexnet_100 seed=2
+sleep 2
+mml train tasks=pami pivot.name=kvasir_capsule_pathologies mode.cv=False mode.nested=False mode.store_parameters=False sampling.balanced=True sampling.batch_size=300 callbacks=none lr_scheduler=step +trainer.check_val_every_n_epoch=40 trainer.max_epochs=40 augmentations=baseline256 sampling.enable_caching=True proj=pami2_t_arch_search_02_2 arch.timm.name=ecaresnet50d seed=2
+sleep 2
+mml train tasks=pami pivot.name=kvasir_capsule_pathologies mode.cv=False mode.nested=False mode.store_parameters=False sampling.balanced=True sampling.batch_size=300 callbacks=none lr_scheduler=step +trainer.check_val_every_n_epoch=40 trainer.max_epochs=40 augmentations=baseline256 sampling.enable_caching=True proj=pami2_t_arch_search_02_2 arch.timm.name=cspdarknet53 seed=2
+sleep 2
+mml train tasks=pami pivot.name=kvasir_capsule_pathologies mode.cv=False mode.nested=False mode.store_parameters=False sampling.balanced=True sampling.batch_size=300 callbacks=none lr_scheduler=step +trainer.check_val_every_n_epoch=40 trainer.max_epochs=40 augmentations=baseline256 sampling.enable_caching=True proj=pami2_t_arch_search_02_2 arch.timm.name=mixnet_l seed=2
+sleep 2
+mml train tasks=pami pivot.name=kvasir_capsule_pathologies mode.cv=False mode.nested=False mode.store_parameters=False sampling.balanced=True sampling.batch_size=300 callbacks=none lr_scheduler=step +trainer.check_val_every_n_epoch=40 trainer.max_epochs=40 augmentations=baseline256 sampling.enable_caching=True proj=pami2_t_arch_search_02_2 arch.timm.name=cspresnext50 seed=2
+sleep 2
+mml train tasks=pami pivot.name=kvasir_capsule_pathologies mode.cv=False mode.nested=False mode.store_parameters=False sampling.balanced=True sampling.batch_size=300 callbacks=none lr_scheduler=step +trainer.check_val_every_n_epoch=40 trainer.max_epochs=40 augmentations=baseline256 sampling.enable_caching=True proj=pami2_t_arch_search_02_2 arch.timm.name=cspresnet50 seed=2
+sleep 2
+mml train tasks=pami pivot.name=kvasir_capsule_pathologies mode.cv=False mode.nested=False mode.store_parameters=False sampling.balanced=True sampling.batch_size=300 callbacks=none lr_scheduler=step +trainer.check_val_every_n_epoch=40 trainer.max_epochs=40 augmentations=baseline256 sampling.enable_caching=True proj=pami2_t_arch_search_02_2 arch.timm.name=ese_vovnet39b seed=2
+sleep 2
+mml train tasks=pami pivot.name=kvasir_capsule_pathologies mode.cv=False mode.nested=False mode.store_parameters=False sampling.balanced=True sampling.batch_size=300 callbacks=none lr_scheduler=step +trainer.check_val_every_n_epoch=40 trainer.max_epochs=40 augmentations=baseline256 sampling.enable_caching=True proj=pami2_t_arch_search_02_2 arch.timm.name=resnest50d seed=2
+sleep 2
+mml train tasks=pami pivot.name=kvasir_capsule_pathologies mode.cv=False mode.nested=False mode.store_parameters=False sampling.balanced=True sampling.batch_size=300 callbacks=none lr_scheduler=step +trainer.check_val_every_n_epoch=40 trainer.max_epochs=40 augmentations=baseline256 sampling.enable_caching=True proj=pami2_t_arch_search_02_2 arch.timm.name=hrnet_w18 seed=2
+sleep 2
+mml train tasks=pami pivot.name=kvasir_capsule_pathologies mode.cv=False mode.nested=False mode.store_parameters=False sampling.balanced=True sampling.batch_size=300 callbacks=none lr_scheduler=step +trainer.check_val_every_n_epoch=40 trainer.max_epochs=40 augmentations=baseline256 sampling.enable_caching=True proj=pami2_t_arch_search_02_2 arch.timm.name=skresnet34 seed=2
+sleep 2
+mml train tasks=pami pivot.name=kvasir_capsule_pathologies mode.cv=False mode.nested=False mode.store_parameters=False sampling.balanced=True sampling.batch_size=300 callbacks=none lr_scheduler=step +trainer.check_val_every_n_epoch=40 trainer.max_epochs=40 augmentations=baseline256 sampling.enable_caching=True proj=pami2_t_arch_search_02_2 arch.timm.name=mobilenetv3_large_100 seed=2
+sleep 2
+mml train tasks=pami pivot.name=kvasir_capsule_pathologies mode.cv=False mode.nested=False mode.store_parameters=False sampling.balanced=True sampling.batch_size=300 callbacks=none lr_scheduler=step +trainer.check_val_every_n_epoch=40 trainer.max_epochs=40 augmentations=baseline256 sampling.enable_caching=True proj=pami2_t_arch_search_02_2 arch.timm.name=res2net50_26w_4s seed=2
+sleep 2
+mml train tasks=pami pivot.name=breast_cancer_classification_v2 mode.cv=False mode.nested=False mode.store_parameters=False sampling.balanced=True sampling.batch_size=300 callbacks=none lr_scheduler=step +trainer.check_val_every_n_epoch=40 trainer.max_epochs=40 augmentations=baseline256 sampling.enable_caching=True proj=pami2_t_arch_search_02_2 arch.timm.name=tf_efficientnet_b2 seed=2
+sleep 2
+mml train tasks=pami pivot.name=breast_cancer_classification_v2 mode.cv=False mode.nested=False mode.store_parameters=False sampling.balanced=True sampling.batch_size=300 callbacks=none lr_scheduler=step +trainer.check_val_every_n_epoch=40 trainer.max_epochs=40 augmentations=baseline256 sampling.enable_caching=True proj=pami2_t_arch_search_02_2 arch.timm.name=tf_efficientnet_b2_ap seed=2
+sleep 2
+mml train tasks=pami pivot.name=breast_cancer_classification_v2 mode.cv=False mode.nested=False mode.store_parameters=False sampling.balanced=True sampling.batch_size=300 callbacks=none lr_scheduler=step +trainer.check_val_every_n_epoch=40 trainer.max_epochs=40 augmentations=baseline256 sampling.enable_caching=True proj=pami2_t_arch_search_02_2 arch.timm.name=tf_efficientnet_b2_ns seed=2
+sleep 2
+mml train tasks=pami pivot.name=breast_cancer_classification_v2 mode.cv=False mode.nested=False mode.store_parameters=False sampling.balanced=True sampling.batch_size=300 callbacks=none lr_scheduler=step +trainer.check_val_every_n_epoch=40 trainer.max_epochs=40 augmentations=baseline256 sampling.enable_caching=True proj=pami2_t_arch_search_02_2 arch.timm.name=tf_efficientnet_cc_b0_4e seed=2
+sleep 2
+mml train tasks=pami pivot.name=breast_cancer_classification_v2 mode.cv=False mode.nested=False mode.store_parameters=False sampling.balanced=True sampling.batch_size=300 callbacks=none lr_scheduler=step +trainer.check_val_every_n_epoch=40 trainer.max_epochs=40 augmentations=baseline256 sampling.enable_caching=True proj=pami2_t_arch_search_02_2 arch.timm.name=swsl_resnet50 seed=2
+sleep 2
+mml train tasks=pami pivot.name=breast_cancer_classification_v2 mode.cv=False mode.nested=False mode.store_parameters=False sampling.balanced=True sampling.batch_size=300 callbacks=none lr_scheduler=step +trainer.check_val_every_n_epoch=40 trainer.max_epochs=40 augmentations=baseline256 sampling.enable_caching=True proj=pami2_t_arch_search_02_2 arch.timm.name=ssl_resnext50_32x4d seed=2
+sleep 2
+mml train tasks=pami pivot.name=breast_cancer_classification_v2 mode.cv=False mode.nested=False mode.store_parameters=False sampling.balanced=True sampling.batch_size=300 callbacks=none lr_scheduler=step +trainer.check_val_every_n_epoch=40 trainer.max_epochs=40 augmentations=baseline256 sampling.enable_caching=True proj=pami2_t_arch_search_02_2 arch.timm.name=regnetx_032 seed=2
+sleep 2
+mml train tasks=pami pivot.name=breast_cancer_classification_v2 mode.cv=False mode.nested=False mode.store_parameters=False sampling.balanced=True sampling.batch_size=300 callbacks=none lr_scheduler=step +trainer.check_val_every_n_epoch=40 trainer.max_epochs=40 augmentations=baseline256 sampling.enable_caching=True proj=pami2_t_arch_search_02_2 arch.timm.name=regnety_032 seed=2
+sleep 2
+mml train tasks=pami pivot.name=breast_cancer_classification_v2 mode.cv=False mode.nested=False mode.store_parameters=False sampling.balanced=True sampling.batch_size=300 callbacks=none lr_scheduler=step +trainer.check_val_every_n_epoch=40 trainer.max_epochs=40 augmentations=baseline256 sampling.enable_caching=True proj=pami2_t_arch_search_02_2 arch.timm.name=rexnet_100 seed=2
+sleep 2
+mml train tasks=pami pivot.name=breast_cancer_classification_v2 mode.cv=False mode.nested=False mode.store_parameters=False sampling.balanced=True sampling.batch_size=300 callbacks=none lr_scheduler=step +trainer.check_val_every_n_epoch=40 trainer.max_epochs=40 augmentations=baseline256 sampling.enable_caching=True proj=pami2_t_arch_search_02_2 arch.timm.name=ecaresnet50d seed=2
+sleep 2
+mml train tasks=pami pivot.name=breast_cancer_classification_v2 mode.cv=False mode.nested=False mode.store_parameters=False sampling.balanced=True sampling.batch_size=300 callbacks=none lr_scheduler=step +trainer.check_val_every_n_epoch=40 trainer.max_epochs=40 augmentations=baseline256 sampling.enable_caching=True proj=pami2_t_arch_search_02_2 arch.timm.name=cspdarknet53 seed=2
+sleep 2
+mml train tasks=pami pivot.name=breast_cancer_classification_v2 mode.cv=False mode.nested=False mode.store_parameters=False sampling.balanced=True sampling.batch_size=300 callbacks=none lr_scheduler=step +trainer.check_val_every_n_epoch=40 trainer.max_epochs=40 augmentations=baseline256 sampling.enable_caching=True proj=pami2_t_arch_search_02_2 arch.timm.name=mixnet_l seed=2
+sleep 2
+mml train tasks=pami pivot.name=breast_cancer_classification_v2 mode.cv=False mode.nested=False mode.store_parameters=False sampling.balanced=True sampling.batch_size=300 callbacks=none lr_scheduler=step +trainer.check_val_every_n_epoch=40 trainer.max_epochs=40 augmentations=baseline256 sampling.enable_caching=True proj=pami2_t_arch_search_02_2 arch.timm.name=cspresnext50 seed=2
+sleep 2
+mml train tasks=pami pivot.name=breast_cancer_classification_v2 mode.cv=False mode.nested=False mode.store_parameters=False sampling.balanced=True sampling.batch_size=300 callbacks=none lr_scheduler=step +trainer.check_val_every_n_epoch=40 trainer.max_epochs=40 augmentations=baseline256 sampling.enable_caching=True proj=pami2_t_arch_search_02_2 arch.timm.name=cspresnet50 seed=2
+sleep 2
+mml train tasks=pami pivot.name=breast_cancer_classification_v2 mode.cv=False mode.nested=False mode.store_parameters=False sampling.balanced=True sampling.batch_size=300 callbacks=none lr_scheduler=step +trainer.check_val_every_n_epoch=40 trainer.max_epochs=40 augmentations=baseline256 sampling.enable_caching=True proj=pami2_t_arch_search_02_2 arch.timm.name=ese_vovnet39b seed=2
+sleep 2
+mml train tasks=pami pivot.name=breast_cancer_classification_v2 mode.cv=False mode.nested=False mode.store_parameters=False sampling.balanced=True sampling.batch_size=300 callbacks=none lr_scheduler=step +trainer.check_val_every_n_epoch=40 trainer.max_epochs=40 augmentations=baseline256 sampling.enable_caching=True proj=pami2_t_arch_search_02_2 arch.timm.name=resnest50d seed=2
+sleep 2
+mml train tasks=pami pivot.name=breast_cancer_classification_v2 mode.cv=False mode.nested=False mode.store_parameters=False sampling.balanced=True sampling.batch_size=300 callbacks=none lr_scheduler=step +trainer.check_val_every_n_epoch=40 trainer.max_epochs=40 augmentations=baseline256 sampling.enable_caching=True proj=pami2_t_arch_search_02_2 arch.timm.name=hrnet_w18 seed=2
+sleep 2
+mml train tasks=pami pivot.name=breast_cancer_classification_v2 mode.cv=False mode.nested=False mode.store_parameters=False sampling.balanced=True sampling.batch_size=300 callbacks=none lr_scheduler=step +trainer.check_val_every_n_epoch=40 trainer.max_epochs=40 augmentations=baseline256 sampling.enable_caching=True proj=pami2_t_arch_search_02_2 arch.timm.name=skresnet34 seed=2
+sleep 2
+mml train tasks=pami pivot.name=breast_cancer_classification_v2 mode.cv=False mode.nested=False mode.store_parameters=False sampling.balanced=True sampling.batch_size=300 callbacks=none lr_scheduler=step +trainer.check_val_every_n_epoch=40 trainer.max_epochs=40 augmentations=baseline256 sampling.enable_caching=True proj=pami2_t_arch_search_02_2 arch.timm.name=mobilenetv3_large_100 seed=2
+sleep 2
+mml train tasks=pami pivot.name=breast_cancer_classification_v2 mode.cv=False mode.nested=False mode.store_parameters=False sampling.balanced=True sampling.batch_size=300 callbacks=none lr_scheduler=step +trainer.check_val_every_n_epoch=40 trainer.max_epochs=40 augmentations=baseline256 sampling.enable_caching=True proj=pami2_t_arch_search_02_2 arch.timm.name=res2net50_26w_4s seed=2
+sleep 2
+mml train tasks=pami pivot.name=eye_condition_classification mode.cv=False mode.nested=False mode.store_parameters=False sampling.balanced=True sampling.batch_size=300 callbacks=none lr_scheduler=step +trainer.check_val_every_n_epoch=40 trainer.max_epochs=40 augmentations=baseline256 sampling.enable_caching=True proj=pami2_t_arch_search_02_2 arch.timm.name=tf_efficientnet_b2 seed=2
+sleep 2
+mml train tasks=pami pivot.name=eye_condition_classification mode.cv=False mode.nested=False mode.store_parameters=False sampling.balanced=True sampling.batch_size=300 callbacks=none lr_scheduler=step +trainer.check_val_every_n_epoch=40 trainer.max_epochs=40 augmentations=baseline256 sampling.enable_caching=True proj=pami2_t_arch_search_02_2 arch.timm.name=tf_efficientnet_b2_ap seed=2
+sleep 2
+mml train tasks=pami pivot.name=eye_condition_classification mode.cv=False mode.nested=False mode.store_parameters=False sampling.balanced=True sampling.batch_size=300 callbacks=none lr_scheduler=step +trainer.check_val_every_n_epoch=40 trainer.max_epochs=40 augmentations=baseline256 sampling.enable_caching=True proj=pami2_t_arch_search_02_2 arch.timm.name=tf_efficientnet_b2_ns seed=2
+sleep 2
+mml train tasks=pami pivot.name=eye_condition_classification mode.cv=False mode.nested=False mode.store_parameters=False sampling.balanced=True sampling.batch_size=300 callbacks=none lr_scheduler=step +trainer.check_val_every_n_epoch=40 trainer.max_epochs=40 augmentations=baseline256 sampling.enable_caching=True proj=pami2_t_arch_search_02_2 arch.timm.name=tf_efficientnet_cc_b0_4e seed=2
+sleep 2
+mml train tasks=pami pivot.name=eye_condition_classification mode.cv=False mode.nested=False mode.store_parameters=False sampling.balanced=True sampling.batch_size=300 callbacks=none lr_scheduler=step +trainer.check_val_every_n_epoch=40 trainer.max_epochs=40 augmentations=baseline256 sampling.enable_caching=True proj=pami2_t_arch_search_02_2 arch.timm.name=swsl_resnet50 seed=2
+sleep 2
+mml train tasks=pami pivot.name=eye_condition_classification mode.cv=False mode.nested=False mode.store_parameters=False sampling.balanced=True sampling.batch_size=300 callbacks=none lr_scheduler=step +trainer.check_val_every_n_epoch=40 trainer.max_epochs=40 augmentations=baseline256 sampling.enable_caching=True proj=pami2_t_arch_search_02_2 arch.timm.name=ssl_resnext50_32x4d seed=2
+sleep 2
+mml train tasks=pami pivot.name=eye_condition_classification mode.cv=False mode.nested=False mode.store_parameters=False sampling.balanced=True sampling.batch_size=300 callbacks=none lr_scheduler=step +trainer.check_val_every_n_epoch=40 trainer.max_epochs=40 augmentations=baseline256 sampling.enable_caching=True proj=pami2_t_arch_search_02_2 arch.timm.name=regnetx_032 seed=2
+sleep 2
+mml train tasks=pami pivot.name=eye_condition_classification mode.cv=False mode.nested=False mode.store_parameters=False sampling.balanced=True sampling.batch_size=300 callbacks=none lr_scheduler=step +trainer.check_val_every_n_epoch=40 trainer.max_epochs=40 augmentations=baseline256 sampling.enable_caching=True proj=pami2_t_arch_search_02_2 arch.timm.name=regnety_032 seed=2
+sleep 2
+mml train tasks=pami pivot.name=eye_condition_classification mode.cv=False mode.nested=False mode.store_parameters=False sampling.balanced=True sampling.batch_size=300 callbacks=none lr_scheduler=step +trainer.check_val_every_n_epoch=40 trainer.max_epochs=40 augmentations=baseline256 sampling.enable_caching=True proj=pami2_t_arch_search_02_2 arch.timm.name=rexnet_100 seed=2
+sleep 2
+mml train tasks=pami pivot.name=eye_condition_classification mode.cv=False mode.nested=False mode.store_parameters=False sampling.balanced=True sampling.batch_size=300 callbacks=none lr_scheduler=step +trainer.check_val_every_n_epoch=40 trainer.max_epochs=40 augmentations=baseline256 sampling.enable_caching=True proj=pami2_t_arch_search_02_2 arch.timm.name=ecaresnet50d seed=2
+sleep 2
+mml train tasks=pami pivot.name=eye_condition_classification mode.cv=False mode.nested=False mode.store_parameters=False sampling.balanced=True sampling.batch_size=300 callbacks=none lr_scheduler=step +trainer.check_val_every_n_epoch=40 trainer.max_epochs=40 augmentations=baseline256 sampling.enable_caching=True proj=pami2_t_arch_search_02_2 arch.timm.name=cspdarknet53 seed=2
+sleep 2
+mml train tasks=pami pivot.name=eye_condition_classification mode.cv=False mode.nested=False mode.store_parameters=False sampling.balanced=True sampling.batch_size=300 callbacks=none lr_scheduler=step +trainer.check_val_every_n_epoch=40 trainer.max_epochs=40 augmentations=baseline256 sampling.enable_caching=True proj=pami2_t_arch_search_02_2 arch.timm.name=mixnet_l seed=2
+sleep 2
+mml train tasks=pami pivot.name=eye_condition_classification mode.cv=False mode.nested=False mode.store_parameters=False sampling.balanced=True sampling.batch_size=300 callbacks=none lr_scheduler=step +trainer.check_val_every_n_epoch=40 trainer.max_epochs=40 augmentations=baseline256 sampling.enable_caching=True proj=pami2_t_arch_search_02_2 arch.timm.name=cspresnext50 seed=2
+sleep 2
+mml train tasks=pami pivot.name=eye_condition_classification mode.cv=False mode.nested=False mode.store_parameters=False sampling.balanced=True sampling.batch_size=300 callbacks=none lr_scheduler=step +trainer.check_val_every_n_epoch=40 trainer.max_epochs=40 augmentations=baseline256 sampling.enable_caching=True proj=pami2_t_arch_search_02_2 arch.timm.name=cspresnet50 seed=2
+sleep 2
+mml train tasks=pami pivot.name=eye_condition_classification mode.cv=False mode.nested=False mode.store_parameters=False sampling.balanced=True sampling.batch_size=300 callbacks=none lr_scheduler=step +trainer.check_val_every_n_epoch=40 trainer.max_epochs=40 augmentations=baseline256 sampling.enable_caching=True proj=pami2_t_arch_search_02_2 arch.timm.name=ese_vovnet39b seed=2
+sleep 2
+mml train tasks=pami pivot.name=eye_condition_classification mode.cv=False mode.nested=False mode.store_parameters=False sampling.balanced=True sampling.batch_size=300 callbacks=none lr_scheduler=step +trainer.check_val_every_n_epoch=40 trainer.max_epochs=40 augmentations=baseline256 sampling.enable_caching=True proj=pami2_t_arch_search_02_2 arch.timm.name=resnest50d seed=2
+sleep 2
+mml train tasks=pami pivot.name=eye_condition_classification mode.cv=False mode.nested=False mode.store_parameters=False sampling.balanced=True sampling.batch_size=300 callbacks=none lr_scheduler=step +trainer.check_val_every_n_epoch=40 trainer.max_epochs=40 augmentations=baseline256 sampling.enable_caching=True proj=pami2_t_arch_search_02_2 arch.timm.name=hrnet_w18 seed=2
+sleep 2
+mml train tasks=pami pivot.name=eye_condition_classification mode.cv=False mode.nested=False mode.store_parameters=False sampling.balanced=True sampling.batch_size=300 callbacks=none lr_scheduler=step +trainer.check_val_every_n_epoch=40 trainer.max_epochs=40 augmentations=baseline256 sampling.enable_caching=True proj=pami2_t_arch_search_02_2 arch.timm.name=skresnet34 seed=2
+sleep 2
+mml train tasks=pami pivot.name=eye_condition_classification mode.cv=False mode.nested=False mode.store_parameters=False sampling.balanced=True sampling.batch_size=300 callbacks=none lr_scheduler=step +trainer.check_val_every_n_epoch=40 trainer.max_epochs=40 augmentations=baseline256 sampling.enable_caching=True proj=pami2_t_arch_search_02_2 arch.timm.name=mobilenetv3_large_100 seed=2
+sleep 2
+mml train tasks=pami pivot.name=eye_condition_classification mode.cv=False mode.nested=False mode.store_parameters=False sampling.balanced=True sampling.batch_size=300 callbacks=none lr_scheduler=step +trainer.check_val_every_n_epoch=40 trainer.max_epochs=40 augmentations=baseline256 sampling.enable_caching=True proj=pami2_t_arch_search_02_2 arch.timm.name=res2net50_26w_4s seed=2
+sleep 2
+mml train tasks=pami pivot.name=mura_xr_wrist mode.cv=False mode.nested=False mode.store_parameters=False sampling.balanced=True sampling.batch_size=300 callbacks=none lr_scheduler=step +trainer.check_val_every_n_epoch=40 trainer.max_epochs=40 augmentations=baseline256 sampling.enable_caching=True proj=pami2_t_arch_search_02_2 arch.timm.name=tf_efficientnet_b2 seed=2
+sleep 2
+mml train tasks=pami pivot.name=mura_xr_wrist mode.cv=False mode.nested=False mode.store_parameters=False sampling.balanced=True sampling.batch_size=300 callbacks=none lr_scheduler=step +trainer.check_val_every_n_epoch=40 trainer.max_epochs=40 augmentations=baseline256 sampling.enable_caching=True proj=pami2_t_arch_search_02_2 arch.timm.name=tf_efficientnet_b2_ap seed=2
+sleep 2
+mml train tasks=pami pivot.name=mura_xr_wrist mode.cv=False mode.nested=False mode.store_parameters=False sampling.balanced=True sampling.batch_size=300 callbacks=none lr_scheduler=step +trainer.check_val_every_n_epoch=40 trainer.max_epochs=40 augmentations=baseline256 sampling.enable_caching=True proj=pami2_t_arch_search_02_2 arch.timm.name=tf_efficientnet_b2_ns seed=2
+sleep 2
+mml train tasks=pami pivot.name=mura_xr_wrist mode.cv=False mode.nested=False mode.store_parameters=False sampling.balanced=True sampling.batch_size=300 callbacks=none lr_scheduler=step +trainer.check_val_every_n_epoch=40 trainer.max_epochs=40 augmentations=baseline256 sampling.enable_caching=True proj=pami2_t_arch_search_02_2 arch.timm.name=tf_efficientnet_cc_b0_4e seed=2
+sleep 2
+mml train tasks=pami pivot.name=mura_xr_wrist mode.cv=False mode.nested=False mode.store_parameters=False sampling.balanced=True sampling.batch_size=300 callbacks=none lr_scheduler=step +trainer.check_val_every_n_epoch=40 trainer.max_epochs=40 augmentations=baseline256 sampling.enable_caching=True proj=pami2_t_arch_search_02_2 arch.timm.name=swsl_resnet50 seed=2
+sleep 2
+mml train tasks=pami pivot.name=mura_xr_wrist mode.cv=False mode.nested=False mode.store_parameters=False sampling.balanced=True sampling.batch_size=300 callbacks=none lr_scheduler=step +trainer.check_val_every_n_epoch=40 trainer.max_epochs=40 augmentations=baseline256 sampling.enable_caching=True proj=pami2_t_arch_search_02_2 arch.timm.name=ssl_resnext50_32x4d seed=2
+sleep 2
+mml train tasks=pami pivot.name=mura_xr_wrist mode.cv=False mode.nested=False mode.store_parameters=False sampling.balanced=True sampling.batch_size=300 callbacks=none lr_scheduler=step +trainer.check_val_every_n_epoch=40 trainer.max_epochs=40 augmentations=baseline256 sampling.enable_caching=True proj=pami2_t_arch_search_02_2 arch.timm.name=regnetx_032 seed=2
+sleep 2
+mml train tasks=pami pivot.name=mura_xr_wrist mode.cv=False mode.nested=False mode.store_parameters=False sampling.balanced=True sampling.batch_size=300 callbacks=none lr_scheduler=step +trainer.check_val_every_n_epoch=40 trainer.max_epochs=40 augmentations=baseline256 sampling.enable_caching=True proj=pami2_t_arch_search_02_2 arch.timm.name=regnety_032 seed=2
+sleep 2
+mml train tasks=pami pivot.name=mura_xr_wrist mode.cv=False mode.nested=False mode.store_parameters=False sampling.balanced=True sampling.batch_size=301 callbacks=none lr_scheduler=step +trainer.check_val_every_n_epoch=40 trainer.max_epochs=40 augmentations=baseline256 sampling.enable_caching=True proj=pami2_t_arch_search_02_2 arch.timm.name=rexnet_100 seed=2
+sleep 2
+mml train tasks=pami pivot.name=mura_xr_wrist mode.cv=False mode.nested=False mode.store_parameters=False sampling.balanced=True sampling.batch_size=300 callbacks=none lr_scheduler=step +trainer.check_val_every_n_epoch=40 trainer.max_epochs=40 augmentations=baseline256 sampling.enable_caching=True proj=pami2_t_arch_search_02_2 arch.timm.name=ecaresnet50d seed=2
+sleep 2
+mml train tasks=pami pivot.name=mura_xr_wrist mode.cv=False mode.nested=False mode.store_parameters=False sampling.balanced=True sampling.batch_size=300 callbacks=none lr_scheduler=step +trainer.check_val_every_n_epoch=40 trainer.max_epochs=40 augmentations=baseline256 sampling.enable_caching=True proj=pami2_t_arch_search_02_2 arch.timm.name=cspdarknet53 seed=2
+sleep 2
+mml train tasks=pami pivot.name=mura_xr_wrist mode.cv=False mode.nested=False mode.store_parameters=False sampling.balanced=True sampling.batch_size=300 callbacks=none lr_scheduler=step +trainer.check_val_every_n_epoch=40 trainer.max_epochs=40 augmentations=baseline256 sampling.enable_caching=True proj=pami2_t_arch_search_02_2 arch.timm.name=mixnet_l seed=2
+sleep 2
+mml train tasks=pami pivot.name=mura_xr_wrist mode.cv=False mode.nested=False mode.store_parameters=False sampling.balanced=True sampling.batch_size=300 callbacks=none lr_scheduler=step +trainer.check_val_every_n_epoch=40 trainer.max_epochs=40 augmentations=baseline256 sampling.enable_caching=True proj=pami2_t_arch_search_02_2 arch.timm.name=cspresnext50 seed=2
+sleep 2
+mml train tasks=pami pivot.name=mura_xr_wrist mode.cv=False mode.nested=False mode.store_parameters=False sampling.balanced=True sampling.batch_size=300 callbacks=none lr_scheduler=step +trainer.check_val_every_n_epoch=40 trainer.max_epochs=40 augmentations=baseline256 sampling.enable_caching=True proj=pami2_t_arch_search_02_2 arch.timm.name=cspresnet50 seed=2
+sleep 2
+mml train tasks=pami pivot.name=mura_xr_wrist mode.cv=False mode.nested=False mode.store_parameters=False sampling.balanced=True sampling.batch_size=300 callbacks=none lr_scheduler=step +trainer.check_val_every_n_epoch=40 trainer.max_epochs=40 augmentations=baseline256 sampling.enable_caching=True proj=pami2_t_arch_search_02_2 arch.timm.name=ese_vovnet39b seed=2
+sleep 2
+mml train tasks=pami pivot.name=mura_xr_wrist mode.cv=False mode.nested=False mode.store_parameters=False sampling.balanced=True sampling.batch_size=301 callbacks=none lr_scheduler=step +trainer.check_val_every_n_epoch=40 trainer.max_epochs=40 augmentations=baseline256 sampling.enable_caching=True proj=pami2_t_arch_search_02_2 arch.timm.name=resnest50d seed=2
+sleep 2
+mml train tasks=pami pivot.name=mura_xr_wrist mode.cv=False mode.nested=False mode.store_parameters=False sampling.balanced=True sampling.batch_size=300 callbacks=none lr_scheduler=step +trainer.check_val_every_n_epoch=40 trainer.max_epochs=40 augmentations=baseline256 sampling.enable_caching=True proj=pami2_t_arch_search_02_2 arch.timm.name=hrnet_w18 seed=2
+sleep 2
+mml train tasks=pami pivot.name=mura_xr_wrist mode.cv=False mode.nested=False mode.store_parameters=False sampling.balanced=True sampling.batch_size=301 callbacks=none lr_scheduler=step +trainer.check_val_every_n_epoch=40 trainer.max_epochs=40 augmentations=baseline256 sampling.enable_caching=True proj=pami2_t_arch_search_02_2 arch.timm.name=skresnet34 seed=2
+sleep 2
+mml train tasks=pami pivot.name=mura_xr_wrist mode.cv=False mode.nested=False mode.store_parameters=False sampling.balanced=True sampling.batch_size=300 callbacks=none lr_scheduler=step +trainer.check_val_every_n_epoch=40 trainer.max_epochs=40 augmentations=baseline256 sampling.enable_caching=True proj=pami2_t_arch_search_02_2 arch.timm.name=mobilenetv3_large_100 seed=2
+sleep 2
+mml train tasks=pami pivot.name=mura_xr_wrist mode.cv=False mode.nested=False mode.store_parameters=False sampling.balanced=True sampling.batch_size=300 callbacks=none lr_scheduler=step +trainer.check_val_every_n_epoch=40 trainer.max_epochs=40 augmentations=baseline256 sampling.enable_caching=True proj=pami2_t_arch_search_02_2 arch.timm.name=res2net50_26w_4s seed=2
+sleep 2
+mml train tasks=pami pivot.name=mura_xr_shoulder mode.cv=False mode.nested=False mode.store_parameters=False sampling.balanced=True sampling.batch_size=300 callbacks=none lr_scheduler=step +trainer.check_val_every_n_epoch=40 trainer.max_epochs=40 augmentations=baseline256 sampling.enable_caching=True proj=pami2_t_arch_search_02_2 arch.timm.name=tf_efficientnet_b2 seed=2
+sleep 2
+mml train tasks=pami pivot.name=mura_xr_shoulder mode.cv=False mode.nested=False mode.store_parameters=False sampling.balanced=True sampling.batch_size=300 callbacks=none lr_scheduler=step +trainer.check_val_every_n_epoch=40 trainer.max_epochs=40 augmentations=baseline256 sampling.enable_caching=True proj=pami2_t_arch_search_02_2 arch.timm.name=tf_efficientnet_b2_ap seed=2
+sleep 2
+mml train tasks=pami pivot.name=mura_xr_shoulder mode.cv=False mode.nested=False mode.store_parameters=False sampling.balanced=True sampling.batch_size=300 callbacks=none lr_scheduler=step +trainer.check_val_every_n_epoch=40 trainer.max_epochs=40 augmentations=baseline256 sampling.enable_caching=True proj=pami2_t_arch_search_02_2 arch.timm.name=tf_efficientnet_b2_ns seed=2
+sleep 2
+mml train tasks=pami pivot.name=mura_xr_shoulder mode.cv=False mode.nested=False mode.store_parameters=False sampling.balanced=True sampling.batch_size=300 callbacks=none lr_scheduler=step +trainer.check_val_every_n_epoch=40 trainer.max_epochs=40 augmentations=baseline256 sampling.enable_caching=True proj=pami2_t_arch_search_02_2 arch.timm.name=tf_efficientnet_cc_b0_4e seed=2
+sleep 2
+mml train tasks=pami pivot.name=mura_xr_shoulder mode.cv=False mode.nested=False mode.store_parameters=False sampling.balanced=True sampling.batch_size=300 callbacks=none lr_scheduler=step +trainer.check_val_every_n_epoch=40 trainer.max_epochs=40 augmentations=baseline256 sampling.enable_caching=True proj=pami2_t_arch_search_02_2 arch.timm.name=swsl_resnet50 seed=2
+sleep 2
+mml train tasks=pami pivot.name=mura_xr_shoulder mode.cv=False mode.nested=False mode.store_parameters=False sampling.balanced=True sampling.batch_size=300 callbacks=none lr_scheduler=step +trainer.check_val_every_n_epoch=40 trainer.max_epochs=40 augmentations=baseline256 sampling.enable_caching=True proj=pami2_t_arch_search_02_2 arch.timm.name=ssl_resnext50_32x4d seed=2
+sleep 2
+mml train tasks=pami pivot.name=mura_xr_shoulder mode.cv=False mode.nested=False mode.store_parameters=False sampling.balanced=True sampling.batch_size=300 callbacks=none lr_scheduler=step +trainer.check_val_every_n_epoch=40 trainer.max_epochs=40 augmentations=baseline256 sampling.enable_caching=True proj=pami2_t_arch_search_02_2 arch.timm.name=regnetx_032 seed=2
+sleep 2
+mml train tasks=pami pivot.name=mura_xr_shoulder mode.cv=False mode.nested=False mode.store_parameters=False sampling.balanced=True sampling.batch_size=300 callbacks=none lr_scheduler=step +trainer.check_val_every_n_epoch=40 trainer.max_epochs=40 augmentations=baseline256 sampling.enable_caching=True proj=pami2_t_arch_search_02_2 arch.timm.name=regnety_032 seed=2
+sleep 2
+mml train tasks=pami pivot.name=mura_xr_shoulder mode.cv=False mode.nested=False mode.store_parameters=False sampling.balanced=True sampling.batch_size=300 callbacks=none lr_scheduler=step +trainer.check_val_every_n_epoch=40 trainer.max_epochs=40 augmentations=baseline256 sampling.enable_caching=True proj=pami2_t_arch_search_02_2 arch.timm.name=rexnet_100 seed=2
+sleep 2
+mml train tasks=pami pivot.name=mura_xr_shoulder mode.cv=False mode.nested=False mode.store_parameters=False sampling.balanced=True sampling.batch_size=300 callbacks=none lr_scheduler=step +trainer.check_val_every_n_epoch=40 trainer.max_epochs=40 augmentations=baseline256 sampling.enable_caching=True proj=pami2_t_arch_search_02_2 arch.timm.name=ecaresnet50d seed=2
+sleep 2
+mml train tasks=pami pivot.name=mura_xr_shoulder mode.cv=False mode.nested=False mode.store_parameters=False sampling.balanced=True sampling.batch_size=300 callbacks=none lr_scheduler=step +trainer.check_val_every_n_epoch=40 trainer.max_epochs=40 augmentations=baseline256 sampling.enable_caching=True proj=pami2_t_arch_search_02_2 arch.timm.name=cspdarknet53 seed=2
+sleep 2
+mml train tasks=pami pivot.name=mura_xr_shoulder mode.cv=False mode.nested=False mode.store_parameters=False sampling.balanced=True sampling.batch_size=300 callbacks=none lr_scheduler=step +trainer.check_val_every_n_epoch=40 trainer.max_epochs=40 augmentations=baseline256 sampling.enable_caching=True proj=pami2_t_arch_search_02_2 arch.timm.name=mixnet_l seed=2
+sleep 2
+mml train tasks=pami pivot.name=mura_xr_shoulder mode.cv=False mode.nested=False mode.store_parameters=False sampling.balanced=True sampling.batch_size=300 callbacks=none lr_scheduler=step +trainer.check_val_every_n_epoch=40 trainer.max_epochs=40 augmentations=baseline256 sampling.enable_caching=True proj=pami2_t_arch_search_02_2 arch.timm.name=cspresnext50 seed=2
+sleep 2
+mml train tasks=pami pivot.name=mura_xr_shoulder mode.cv=False mode.nested=False mode.store_parameters=False sampling.balanced=True sampling.batch_size=300 callbacks=none lr_scheduler=step +trainer.check_val_every_n_epoch=40 trainer.max_epochs=40 augmentations=baseline256 sampling.enable_caching=True proj=pami2_t_arch_search_02_2 arch.timm.name=cspresnet50 seed=2
+sleep 2
+mml train tasks=pami pivot.name=mura_xr_shoulder mode.cv=False mode.nested=False mode.store_parameters=False sampling.balanced=True sampling.batch_size=300 callbacks=none lr_scheduler=step +trainer.check_val_every_n_epoch=40 trainer.max_epochs=40 augmentations=baseline256 sampling.enable_caching=True proj=pami2_t_arch_search_02_2 arch.timm.name=ese_vovnet39b seed=2
+sleep 2
+mml train tasks=pami pivot.name=mura_xr_shoulder mode.cv=False mode.nested=False mode.store_parameters=False sampling.balanced=True sampling.batch_size=300 callbacks=none lr_scheduler=step +trainer.check_val_every_n_epoch=40 trainer.max_epochs=40 augmentations=baseline256 sampling.enable_caching=True proj=pami2_t_arch_search_02_2 arch.timm.name=resnest50d seed=2
+sleep 2
+mml train tasks=pami pivot.name=mura_xr_shoulder mode.cv=False mode.nested=False mode.store_parameters=False sampling.balanced=True sampling.batch_size=300 callbacks=none lr_scheduler=step +trainer.check_val_every_n_epoch=40 trainer.max_epochs=40 augmentations=baseline256 sampling.enable_caching=True proj=pami2_t_arch_search_02_2 arch.timm.name=hrnet_w18 seed=2
+sleep 2
+mml train tasks=pami pivot.name=mura_xr_shoulder mode.cv=False mode.nested=False mode.store_parameters=False sampling.balanced=True sampling.batch_size=300 callbacks=none lr_scheduler=step +trainer.check_val_every_n_epoch=40 trainer.max_epochs=40 augmentations=baseline256 sampling.enable_caching=True proj=pami2_t_arch_search_02_2 arch.timm.name=skresnet34 seed=2
+sleep 2
+mml train tasks=pami pivot.name=mura_xr_shoulder mode.cv=False mode.nested=False mode.store_parameters=False sampling.balanced=True sampling.batch_size=300 callbacks=none lr_scheduler=step +trainer.check_val_every_n_epoch=40 trainer.max_epochs=40 augmentations=baseline256 sampling.enable_caching=True proj=pami2_t_arch_search_02_2 arch.timm.name=mobilenetv3_large_100 seed=2
+sleep 2
+mml train tasks=pami pivot.name=mura_xr_shoulder mode.cv=False mode.nested=False mode.store_parameters=False sampling.balanced=True sampling.batch_size=300 callbacks=none lr_scheduler=step +trainer.check_val_every_n_epoch=40 trainer.max_epochs=40 augmentations=baseline256 sampling.enable_caching=True proj=pami2_t_arch_search_02_2 arch.timm.name=res2net50_26w_4s seed=2
+sleep 2
+mml train tasks=pami pivot.name=mura_xr_humerus mode.cv=False mode.nested=False mode.store_parameters=False sampling.balanced=True sampling.batch_size=300 callbacks=none lr_scheduler=step +trainer.check_val_every_n_epoch=40 trainer.max_epochs=40 augmentations=baseline256 sampling.enable_caching=True proj=pami2_t_arch_search_02_2 arch.timm.name=tf_efficientnet_b2 seed=2
+sleep 2
+mml train tasks=pami pivot.name=mura_xr_humerus mode.cv=False mode.nested=False mode.store_parameters=False sampling.balanced=True sampling.batch_size=300 callbacks=none lr_scheduler=step +trainer.check_val_every_n_epoch=40 trainer.max_epochs=40 augmentations=baseline256 sampling.enable_caching=True proj=pami2_t_arch_search_02_2 arch.timm.name=tf_efficientnet_b2_ap seed=2
+sleep 2
+mml train tasks=pami pivot.name=mura_xr_humerus mode.cv=False mode.nested=False mode.store_parameters=False sampling.balanced=True sampling.batch_size=300 callbacks=none lr_scheduler=step +trainer.check_val_every_n_epoch=40 trainer.max_epochs=40 augmentations=baseline256 sampling.enable_caching=True proj=pami2_t_arch_search_02_2 arch.timm.name=tf_efficientnet_b2_ns seed=2
+sleep 2
+mml train tasks=pami pivot.name=mura_xr_humerus mode.cv=False mode.nested=False mode.store_parameters=False sampling.balanced=True sampling.batch_size=300 callbacks=none lr_scheduler=step +trainer.check_val_every_n_epoch=40 trainer.max_epochs=40 augmentations=baseline256 sampling.enable_caching=True proj=pami2_t_arch_search_02_2 arch.timm.name=tf_efficientnet_cc_b0_4e seed=2
+sleep 2
+mml train tasks=pami pivot.name=mura_xr_humerus mode.cv=False mode.nested=False mode.store_parameters=False sampling.balanced=True sampling.batch_size=300 callbacks=none lr_scheduler=step +trainer.check_val_every_n_epoch=40 trainer.max_epochs=40 augmentations=baseline256 sampling.enable_caching=True proj=pami2_t_arch_search_02_2 arch.timm.name=swsl_resnet50 seed=2
+sleep 2
+mml train tasks=pami pivot.name=mura_xr_humerus mode.cv=False mode.nested=False mode.store_parameters=False sampling.balanced=True sampling.batch_size=300 callbacks=none lr_scheduler=step +trainer.check_val_every_n_epoch=40 trainer.max_epochs=40 augmentations=baseline256 sampling.enable_caching=True proj=pami2_t_arch_search_02_2 arch.timm.name=ssl_resnext50_32x4d seed=2
+sleep 2
+mml train tasks=pami pivot.name=mura_xr_humerus mode.cv=False mode.nested=False mode.store_parameters=False sampling.balanced=True sampling.batch_size=300 callbacks=none lr_scheduler=step +trainer.check_val_every_n_epoch=40 trainer.max_epochs=40 augmentations=baseline256 sampling.enable_caching=True proj=pami2_t_arch_search_02_2 arch.timm.name=regnetx_032 seed=2
+sleep 2
+mml train tasks=pami pivot.name=mura_xr_humerus mode.cv=False mode.nested=False mode.store_parameters=False sampling.balanced=True sampling.batch_size=300 callbacks=none lr_scheduler=step +trainer.check_val_every_n_epoch=40 trainer.max_epochs=40 augmentations=baseline256 sampling.enable_caching=True proj=pami2_t_arch_search_02_2 arch.timm.name=regnety_032 seed=2
+sleep 2
+mml train tasks=pami pivot.name=mura_xr_humerus mode.cv=False mode.nested=False mode.store_parameters=False sampling.balanced=True sampling.batch_size=300 callbacks=none lr_scheduler=step +trainer.check_val_every_n_epoch=40 trainer.max_epochs=40 augmentations=baseline256 sampling.enable_caching=True proj=pami2_t_arch_search_02_2 arch.timm.name=rexnet_100 seed=2
+sleep 2
+mml train tasks=pami pivot.name=mura_xr_humerus mode.cv=False mode.nested=False mode.store_parameters=False sampling.balanced=True sampling.batch_size=300 callbacks=none lr_scheduler=step +trainer.check_val_every_n_epoch=40 trainer.max_epochs=40 augmentations=baseline256 sampling.enable_caching=True proj=pami2_t_arch_search_02_2 arch.timm.name=ecaresnet50d seed=2
+sleep 2
+mml train tasks=pami pivot.name=mura_xr_humerus mode.cv=False mode.nested=False mode.store_parameters=False sampling.balanced=True sampling.batch_size=300 callbacks=none lr_scheduler=step +trainer.check_val_every_n_epoch=40 trainer.max_epochs=40 augmentations=baseline256 sampling.enable_caching=True proj=pami2_t_arch_search_02_2 arch.timm.name=cspdarknet53 seed=2
+sleep 2
+mml train tasks=pami pivot.name=mura_xr_humerus mode.cv=False mode.nested=False mode.store_parameters=False sampling.balanced=True sampling.batch_size=300 callbacks=none lr_scheduler=step +trainer.check_val_every_n_epoch=40 trainer.max_epochs=40 augmentations=baseline256 sampling.enable_caching=True proj=pami2_t_arch_search_02_2 arch.timm.name=mixnet_l seed=2
+sleep 2
+mml train tasks=pami pivot.name=mura_xr_humerus mode.cv=False mode.nested=False mode.store_parameters=False sampling.balanced=True sampling.batch_size=300 callbacks=none lr_scheduler=step +trainer.check_val_every_n_epoch=40 trainer.max_epochs=40 augmentations=baseline256 sampling.enable_caching=True proj=pami2_t_arch_search_02_2 arch.timm.name=cspresnext50 seed=2
+sleep 2
+mml train tasks=pami pivot.name=mura_xr_humerus mode.cv=False mode.nested=False mode.store_parameters=False sampling.balanced=True sampling.batch_size=300 callbacks=none lr_scheduler=step +trainer.check_val_every_n_epoch=40 trainer.max_epochs=40 augmentations=baseline256 sampling.enable_caching=True proj=pami2_t_arch_search_02_2 arch.timm.name=cspresnet50 seed=2
+sleep 2
+mml train tasks=pami pivot.name=mura_xr_humerus mode.cv=False mode.nested=False mode.store_parameters=False sampling.balanced=True sampling.batch_size=300 callbacks=none lr_scheduler=step +trainer.check_val_every_n_epoch=40 trainer.max_epochs=40 augmentations=baseline256 sampling.enable_caching=True proj=pami2_t_arch_search_02_2 arch.timm.name=ese_vovnet39b seed=2
+sleep 2
+mml train tasks=pami pivot.name=mura_xr_humerus mode.cv=False mode.nested=False mode.store_parameters=False sampling.balanced=True sampling.batch_size=300 callbacks=none lr_scheduler=step +trainer.check_val_every_n_epoch=40 trainer.max_epochs=40 augmentations=baseline256 sampling.enable_caching=True proj=pami2_t_arch_search_02_2 arch.timm.name=resnest50d seed=2
+sleep 2
+mml train tasks=pami pivot.name=mura_xr_humerus mode.cv=False mode.nested=False mode.store_parameters=False sampling.balanced=True sampling.batch_size=300 callbacks=none lr_scheduler=step +trainer.check_val_every_n_epoch=40 trainer.max_epochs=40 augmentations=baseline256 sampling.enable_caching=True proj=pami2_t_arch_search_02_2 arch.timm.name=hrnet_w18 seed=2
+sleep 2
+mml train tasks=pami pivot.name=mura_xr_humerus mode.cv=False mode.nested=False mode.store_parameters=False sampling.balanced=True sampling.batch_size=300 callbacks=none lr_scheduler=step +trainer.check_val_every_n_epoch=40 trainer.max_epochs=40 augmentations=baseline256 sampling.enable_caching=True proj=pami2_t_arch_search_02_2 arch.timm.name=skresnet34 seed=2
+sleep 2
+mml train tasks=pami pivot.name=mura_xr_humerus mode.cv=False mode.nested=False mode.store_parameters=False sampling.balanced=True sampling.batch_size=300 callbacks=none lr_scheduler=step +trainer.check_val_every_n_epoch=40 trainer.max_epochs=40 augmentations=baseline256 sampling.enable_caching=True proj=pami2_t_arch_search_02_2 arch.timm.name=mobilenetv3_large_100 seed=2
+sleep 2
+mml train tasks=pami pivot.name=mura_xr_humerus mode.cv=False mode.nested=False mode.store_parameters=False sampling.balanced=True sampling.batch_size=300 callbacks=none lr_scheduler=step +trainer.check_val_every_n_epoch=40 trainer.max_epochs=40 augmentations=baseline256 sampling.enable_caching=True proj=pami2_t_arch_search_02_2 arch.timm.name=res2net50_26w_4s seed=2
+sleep 2
+mml train tasks=pami pivot.name=mura_xr_hand mode.cv=False mode.nested=False mode.store_parameters=False sampling.balanced=True sampling.batch_size=300 callbacks=none lr_scheduler=step +trainer.check_val_every_n_epoch=40 trainer.max_epochs=40 augmentations=baseline256 sampling.enable_caching=True proj=pami2_t_arch_search_02_2 arch.timm.name=tf_efficientnet_b2 seed=2
+sleep 2
+mml train tasks=pami pivot.name=mura_xr_hand mode.cv=False mode.nested=False mode.store_parameters=False sampling.balanced=True sampling.batch_size=300 callbacks=none lr_scheduler=step +trainer.check_val_every_n_epoch=40 trainer.max_epochs=40 augmentations=baseline256 sampling.enable_caching=True proj=pami2_t_arch_search_02_2 arch.timm.name=tf_efficientnet_b2_ap seed=2
+sleep 2
+mml train tasks=pami pivot.name=mura_xr_hand mode.cv=False mode.nested=False mode.store_parameters=False sampling.balanced=True sampling.batch_size=300 callbacks=none lr_scheduler=step +trainer.check_val_every_n_epoch=40 trainer.max_epochs=40 augmentations=baseline256 sampling.enable_caching=True proj=pami2_t_arch_search_02_2 arch.timm.name=tf_efficientnet_b2_ns seed=2
+sleep 2
+mml train tasks=pami pivot.name=mura_xr_hand mode.cv=False mode.nested=False mode.store_parameters=False sampling.balanced=True sampling.batch_size=300 callbacks=none lr_scheduler=step +trainer.check_val_every_n_epoch=40 trainer.max_epochs=40 augmentations=baseline256 sampling.enable_caching=True proj=pami2_t_arch_search_02_2 arch.timm.name=tf_efficientnet_cc_b0_4e seed=2
+sleep 2
+mml train tasks=pami pivot.name=mura_xr_hand mode.cv=False mode.nested=False mode.store_parameters=False sampling.balanced=True sampling.batch_size=300 callbacks=none lr_scheduler=step +trainer.check_val_every_n_epoch=40 trainer.max_epochs=40 augmentations=baseline256 sampling.enable_caching=True proj=pami2_t_arch_search_02_2 arch.timm.name=swsl_resnet50 seed=2
+sleep 2
+mml train tasks=pami pivot.name=mura_xr_hand mode.cv=False mode.nested=False mode.store_parameters=False sampling.balanced=True sampling.batch_size=300 callbacks=none lr_scheduler=step +trainer.check_val_every_n_epoch=40 trainer.max_epochs=40 augmentations=baseline256 sampling.enable_caching=True proj=pami2_t_arch_search_02_2 arch.timm.name=ssl_resnext50_32x4d seed=2
+sleep 2
+mml train tasks=pami pivot.name=mura_xr_hand mode.cv=False mode.nested=False mode.store_parameters=False sampling.balanced=True sampling.batch_size=300 callbacks=none lr_scheduler=step +trainer.check_val_every_n_epoch=40 trainer.max_epochs=40 augmentations=baseline256 sampling.enable_caching=True proj=pami2_t_arch_search_02_2 arch.timm.name=regnetx_032 seed=2
+sleep 2
+mml train tasks=pami pivot.name=mura_xr_hand mode.cv=False mode.nested=False mode.store_parameters=False sampling.balanced=True sampling.batch_size=300 callbacks=none lr_scheduler=step +trainer.check_val_every_n_epoch=40 trainer.max_epochs=40 augmentations=baseline256 sampling.enable_caching=True proj=pami2_t_arch_search_02_2 arch.timm.name=regnety_032 seed=2
+sleep 2
+mml train tasks=pami pivot.name=mura_xr_hand mode.cv=False mode.nested=False mode.store_parameters=False sampling.balanced=True sampling.batch_size=300 callbacks=none lr_scheduler=step +trainer.check_val_every_n_epoch=40 trainer.max_epochs=40 augmentations=baseline256 sampling.enable_caching=True proj=pami2_t_arch_search_02_2 arch.timm.name=rexnet_100 seed=2
+sleep 2
+mml train tasks=pami pivot.name=mura_xr_hand mode.cv=False mode.nested=False mode.store_parameters=False sampling.balanced=True sampling.batch_size=300 callbacks=none lr_scheduler=step +trainer.check_val_every_n_epoch=40 trainer.max_epochs=40 augmentations=baseline256 sampling.enable_caching=True proj=pami2_t_arch_search_02_2 arch.timm.name=ecaresnet50d seed=2
+sleep 2
+mml train tasks=pami pivot.name=mura_xr_hand mode.cv=False mode.nested=False mode.store_parameters=False sampling.balanced=True sampling.batch_size=300 callbacks=none lr_scheduler=step +trainer.check_val_every_n_epoch=40 trainer.max_epochs=40 augmentations=baseline256 sampling.enable_caching=True proj=pami2_t_arch_search_02_2 arch.timm.name=cspdarknet53 seed=2
+sleep 2
+mml train tasks=pami pivot.name=mura_xr_hand mode.cv=False mode.nested=False mode.store_parameters=False sampling.balanced=True sampling.batch_size=300 callbacks=none lr_scheduler=step +trainer.check_val_every_n_epoch=40 trainer.max_epochs=40 augmentations=baseline256 sampling.enable_caching=True proj=pami2_t_arch_search_02_2 arch.timm.name=mixnet_l seed=2
+sleep 2
+mml train tasks=pami pivot.name=mura_xr_hand mode.cv=False mode.nested=False mode.store_parameters=False sampling.balanced=True sampling.batch_size=300 callbacks=none lr_scheduler=step +trainer.check_val_every_n_epoch=40 trainer.max_epochs=40 augmentations=baseline256 sampling.enable_caching=True proj=pami2_t_arch_search_02_2 arch.timm.name=cspresnext50 seed=2
+sleep 2
+mml train tasks=pami pivot.name=mura_xr_hand mode.cv=False mode.nested=False mode.store_parameters=False sampling.balanced=True sampling.batch_size=300 callbacks=none lr_scheduler=step +trainer.check_val_every_n_epoch=40 trainer.max_epochs=40 augmentations=baseline256 sampling.enable_caching=True proj=pami2_t_arch_search_02_2 arch.timm.name=cspresnet50 seed=2
+sleep 2
+mml train tasks=pami pivot.name=mura_xr_hand mode.cv=False mode.nested=False mode.store_parameters=False sampling.balanced=True sampling.batch_size=300 callbacks=none lr_scheduler=step +trainer.check_val_every_n_epoch=40 trainer.max_epochs=40 augmentations=baseline256 sampling.enable_caching=True proj=pami2_t_arch_search_02_2 arch.timm.name=ese_vovnet39b seed=2
+sleep 2
+mml train tasks=pami pivot.name=mura_xr_hand mode.cv=False mode.nested=False mode.store_parameters=False sampling.balanced=True sampling.batch_size=300 callbacks=none lr_scheduler=step +trainer.check_val_every_n_epoch=40 trainer.max_epochs=40 augmentations=baseline256 sampling.enable_caching=True proj=pami2_t_arch_search_02_2 arch.timm.name=resnest50d seed=2
+sleep 2
+mml train tasks=pami pivot.name=mura_xr_hand mode.cv=False mode.nested=False mode.store_parameters=False sampling.balanced=True sampling.batch_size=300 callbacks=none lr_scheduler=step +trainer.check_val_every_n_epoch=40 trainer.max_epochs=40 augmentations=baseline256 sampling.enable_caching=True proj=pami2_t_arch_search_02_2 arch.timm.name=hrnet_w18 seed=2
+sleep 2
+mml train tasks=pami pivot.name=mura_xr_hand mode.cv=False mode.nested=False mode.store_parameters=False sampling.balanced=True sampling.batch_size=300 callbacks=none lr_scheduler=step +trainer.check_val_every_n_epoch=40 trainer.max_epochs=40 augmentations=baseline256 sampling.enable_caching=True proj=pami2_t_arch_search_02_2 arch.timm.name=skresnet34 seed=2
+sleep 2
+mml train tasks=pami pivot.name=mura_xr_hand mode.cv=False mode.nested=False mode.store_parameters=False sampling.balanced=True sampling.batch_size=300 callbacks=none lr_scheduler=step +trainer.check_val_every_n_epoch=40 trainer.max_epochs=40 augmentations=baseline256 sampling.enable_caching=True proj=pami2_t_arch_search_02_2 arch.timm.name=mobilenetv3_large_100 seed=2
+sleep 2
+mml train tasks=pami pivot.name=mura_xr_hand mode.cv=False mode.nested=False mode.store_parameters=False sampling.balanced=True sampling.batch_size=300 callbacks=none lr_scheduler=step +trainer.check_val_every_n_epoch=40 trainer.max_epochs=40 augmentations=baseline256 sampling.enable_caching=True proj=pami2_t_arch_search_02_2 arch.timm.name=res2net50_26w_4s seed=2
+sleep 2
+mml train tasks=pami pivot.name=mura_xr_forearm mode.cv=False mode.nested=False mode.store_parameters=False sampling.balanced=True sampling.batch_size=300 callbacks=none lr_scheduler=step +trainer.check_val_every_n_epoch=40 trainer.max_epochs=40 augmentations=baseline256 sampling.enable_caching=True proj=pami2_t_arch_search_02_2 arch.timm.name=tf_efficientnet_b2 seed=2
+sleep 2
+mml train tasks=pami pivot.name=mura_xr_forearm mode.cv=False mode.nested=False mode.store_parameters=False sampling.balanced=True sampling.batch_size=300 callbacks=none lr_scheduler=step +trainer.check_val_every_n_epoch=40 trainer.max_epochs=40 augmentations=baseline256 sampling.enable_caching=True proj=pami2_t_arch_search_02_2 arch.timm.name=tf_efficientnet_b2_ap seed=2
+sleep 2
+mml train tasks=pami pivot.name=mura_xr_forearm mode.cv=False mode.nested=False mode.store_parameters=False sampling.balanced=True sampling.batch_size=300 callbacks=none lr_scheduler=step +trainer.check_val_every_n_epoch=40 trainer.max_epochs=40 augmentations=baseline256 sampling.enable_caching=True proj=pami2_t_arch_search_02_2 arch.timm.name=tf_efficientnet_b2_ns seed=2
+sleep 2
+mml train tasks=pami pivot.name=mura_xr_forearm mode.cv=False mode.nested=False mode.store_parameters=False sampling.balanced=True sampling.batch_size=300 callbacks=none lr_scheduler=step +trainer.check_val_every_n_epoch=40 trainer.max_epochs=40 augmentations=baseline256 sampling.enable_caching=True proj=pami2_t_arch_search_02_2 arch.timm.name=tf_efficientnet_cc_b0_4e seed=2
+sleep 2
+mml train tasks=pami pivot.name=mura_xr_forearm mode.cv=False mode.nested=False mode.store_parameters=False sampling.balanced=True sampling.batch_size=300 callbacks=none lr_scheduler=step +trainer.check_val_every_n_epoch=40 trainer.max_epochs=40 augmentations=baseline256 sampling.enable_caching=True proj=pami2_t_arch_search_02_2 arch.timm.name=swsl_resnet50 seed=2
+sleep 2
+mml train tasks=pami pivot.name=mura_xr_forearm mode.cv=False mode.nested=False mode.store_parameters=False sampling.balanced=True sampling.batch_size=300 callbacks=none lr_scheduler=step +trainer.check_val_every_n_epoch=40 trainer.max_epochs=40 augmentations=baseline256 sampling.enable_caching=True proj=pami2_t_arch_search_02_2 arch.timm.name=ssl_resnext50_32x4d seed=2
+sleep 2
+mml train tasks=pami pivot.name=mura_xr_forearm mode.cv=False mode.nested=False mode.store_parameters=False sampling.balanced=True sampling.batch_size=300 callbacks=none lr_scheduler=step +trainer.check_val_every_n_epoch=40 trainer.max_epochs=40 augmentations=baseline256 sampling.enable_caching=True proj=pami2_t_arch_search_02_2 arch.timm.name=regnetx_032 seed=2
+sleep 2
+mml train tasks=pami pivot.name=mura_xr_forearm mode.cv=False mode.nested=False mode.store_parameters=False sampling.balanced=True sampling.batch_size=300 callbacks=none lr_scheduler=step +trainer.check_val_every_n_epoch=40 trainer.max_epochs=40 augmentations=baseline256 sampling.enable_caching=True proj=pami2_t_arch_search_02_2 arch.timm.name=regnety_032 seed=2
+sleep 2
+mml train tasks=pami pivot.name=mura_xr_forearm mode.cv=False mode.nested=False mode.store_parameters=False sampling.balanced=True sampling.batch_size=300 callbacks=none lr_scheduler=step +trainer.check_val_every_n_epoch=40 trainer.max_epochs=40 augmentations=baseline256 sampling.enable_caching=True proj=pami2_t_arch_search_02_2 arch.timm.name=rexnet_100 seed=2
+sleep 2
+mml train tasks=pami pivot.name=mura_xr_forearm mode.cv=False mode.nested=False mode.store_parameters=False sampling.balanced=True sampling.batch_size=300 callbacks=none lr_scheduler=step +trainer.check_val_every_n_epoch=40 trainer.max_epochs=40 augmentations=baseline256 sampling.enable_caching=True proj=pami2_t_arch_search_02_2 arch.timm.name=ecaresnet50d seed=2
+sleep 2
+mml train tasks=pami pivot.name=mura_xr_forearm mode.cv=False mode.nested=False mode.store_parameters=False sampling.balanced=True sampling.batch_size=300 callbacks=none lr_scheduler=step +trainer.check_val_every_n_epoch=40 trainer.max_epochs=40 augmentations=baseline256 sampling.enable_caching=True proj=pami2_t_arch_search_02_2 arch.timm.name=cspdarknet53 seed=2
+sleep 2
+mml train tasks=pami pivot.name=mura_xr_forearm mode.cv=False mode.nested=False mode.store_parameters=False sampling.balanced=True sampling.batch_size=300 callbacks=none lr_scheduler=step +trainer.check_val_every_n_epoch=40 trainer.max_epochs=40 augmentations=baseline256 sampling.enable_caching=True proj=pami2_t_arch_search_02_2 arch.timm.name=mixnet_l seed=2
+sleep 2
+mml train tasks=pami pivot.name=mura_xr_forearm mode.cv=False mode.nested=False mode.store_parameters=False sampling.balanced=True sampling.batch_size=300 callbacks=none lr_scheduler=step +trainer.check_val_every_n_epoch=40 trainer.max_epochs=40 augmentations=baseline256 sampling.enable_caching=True proj=pami2_t_arch_search_02_2 arch.timm.name=cspresnext50 seed=2
+sleep 2
+mml train tasks=pami pivot.name=mura_xr_forearm mode.cv=False mode.nested=False mode.store_parameters=False sampling.balanced=True sampling.batch_size=300 callbacks=none lr_scheduler=step +trainer.check_val_every_n_epoch=40 trainer.max_epochs=40 augmentations=baseline256 sampling.enable_caching=True proj=pami2_t_arch_search_02_2 arch.timm.name=cspresnet50 seed=2
+sleep 2
+mml train tasks=pami pivot.name=mura_xr_forearm mode.cv=False mode.nested=False mode.store_parameters=False sampling.balanced=True sampling.batch_size=300 callbacks=none lr_scheduler=step +trainer.check_val_every_n_epoch=40 trainer.max_epochs=40 augmentations=baseline256 sampling.enable_caching=True proj=pami2_t_arch_search_02_2 arch.timm.name=ese_vovnet39b seed=2
+sleep 2
+mml train tasks=pami pivot.name=mura_xr_forearm mode.cv=False mode.nested=False mode.store_parameters=False sampling.balanced=True sampling.batch_size=300 callbacks=none lr_scheduler=step +trainer.check_val_every_n_epoch=40 trainer.max_epochs=40 augmentations=baseline256 sampling.enable_caching=True proj=pami2_t_arch_search_02_2 arch.timm.name=resnest50d seed=2
+sleep 2
+mml train tasks=pami pivot.name=mura_xr_forearm mode.cv=False mode.nested=False mode.store_parameters=False sampling.balanced=True sampling.batch_size=300 callbacks=none lr_scheduler=step +trainer.check_val_every_n_epoch=40 trainer.max_epochs=40 augmentations=baseline256 sampling.enable_caching=True proj=pami2_t_arch_search_02_2 arch.timm.name=hrnet_w18 seed=2
+sleep 2
+mml train tasks=pami pivot.name=mura_xr_forearm mode.cv=False mode.nested=False mode.store_parameters=False sampling.balanced=True sampling.batch_size=300 callbacks=none lr_scheduler=step +trainer.check_val_every_n_epoch=40 trainer.max_epochs=40 augmentations=baseline256 sampling.enable_caching=True proj=pami2_t_arch_search_02_2 arch.timm.name=skresnet34 seed=2
+sleep 2
+mml train tasks=pami pivot.name=mura_xr_forearm mode.cv=False mode.nested=False mode.store_parameters=False sampling.balanced=True sampling.batch_size=300 callbacks=none lr_scheduler=step +trainer.check_val_every_n_epoch=40 trainer.max_epochs=40 augmentations=baseline256 sampling.enable_caching=True proj=pami2_t_arch_search_02_2 arch.timm.name=mobilenetv3_large_100 seed=2
+sleep 2
+mml train tasks=pami pivot.name=mura_xr_forearm mode.cv=False mode.nested=False mode.store_parameters=False sampling.balanced=True sampling.batch_size=300 callbacks=none lr_scheduler=step +trainer.check_val_every_n_epoch=40 trainer.max_epochs=40 augmentations=baseline256 sampling.enable_caching=True proj=pami2_t_arch_search_02_2 arch.timm.name=res2net50_26w_4s seed=2
+sleep 2
+mml train tasks=pami pivot.name=mura_xr_finger mode.cv=False mode.nested=False mode.store_parameters=False sampling.balanced=True sampling.batch_size=300 callbacks=none lr_scheduler=step +trainer.check_val_every_n_epoch=40 trainer.max_epochs=40 augmentations=baseline256 sampling.enable_caching=True proj=pami2_t_arch_search_02_2 arch.timm.name=tf_efficientnet_b2 seed=2
+sleep 2
+mml train tasks=pami pivot.name=mura_xr_finger mode.cv=False mode.nested=False mode.store_parameters=False sampling.balanced=True sampling.batch_size=300 callbacks=none lr_scheduler=step +trainer.check_val_every_n_epoch=40 trainer.max_epochs=40 augmentations=baseline256 sampling.enable_caching=True proj=pami2_t_arch_search_02_2 arch.timm.name=tf_efficientnet_b2_ap seed=2
+sleep 2
+mml train tasks=pami pivot.name=mura_xr_finger mode.cv=False mode.nested=False mode.store_parameters=False sampling.balanced=True sampling.batch_size=300 callbacks=none lr_scheduler=step +trainer.check_val_every_n_epoch=40 trainer.max_epochs=40 augmentations=baseline256 sampling.enable_caching=True proj=pami2_t_arch_search_02_2 arch.timm.name=tf_efficientnet_b2_ns seed=2
+sleep 2
+mml train tasks=pami pivot.name=mura_xr_finger mode.cv=False mode.nested=False mode.store_parameters=False sampling.balanced=True sampling.batch_size=300 callbacks=none lr_scheduler=step +trainer.check_val_every_n_epoch=40 trainer.max_epochs=40 augmentations=baseline256 sampling.enable_caching=True proj=pami2_t_arch_search_02_2 arch.timm.name=tf_efficientnet_cc_b0_4e seed=2
+sleep 2
+mml train tasks=pami pivot.name=mura_xr_finger mode.cv=False mode.nested=False mode.store_parameters=False sampling.balanced=True sampling.batch_size=300 callbacks=none lr_scheduler=step +trainer.check_val_every_n_epoch=40 trainer.max_epochs=40 augmentations=baseline256 sampling.enable_caching=True proj=pami2_t_arch_search_02_2 arch.timm.name=swsl_resnet50 seed=2
+sleep 2
+mml train tasks=pami pivot.name=mura_xr_finger mode.cv=False mode.nested=False mode.store_parameters=False sampling.balanced=True sampling.batch_size=300 callbacks=none lr_scheduler=step +trainer.check_val_every_n_epoch=40 trainer.max_epochs=40 augmentations=baseline256 sampling.enable_caching=True proj=pami2_t_arch_search_02_2 arch.timm.name=ssl_resnext50_32x4d seed=2
+sleep 2
+mml train tasks=pami pivot.name=mura_xr_finger mode.cv=False mode.nested=False mode.store_parameters=False sampling.balanced=True sampling.batch_size=300 callbacks=none lr_scheduler=step +trainer.check_val_every_n_epoch=40 trainer.max_epochs=40 augmentations=baseline256 sampling.enable_caching=True proj=pami2_t_arch_search_02_2 arch.timm.name=regnetx_032 seed=2
+sleep 2
+mml train tasks=pami pivot.name=mura_xr_finger mode.cv=False mode.nested=False mode.store_parameters=False sampling.balanced=True sampling.batch_size=300 callbacks=none lr_scheduler=step +trainer.check_val_every_n_epoch=40 trainer.max_epochs=40 augmentations=baseline256 sampling.enable_caching=True proj=pami2_t_arch_search_02_2 arch.timm.name=regnety_032 seed=2
+sleep 2
+mml train tasks=pami pivot.name=mura_xr_finger mode.cv=False mode.nested=False mode.store_parameters=False sampling.balanced=True sampling.batch_size=300 callbacks=none lr_scheduler=step +trainer.check_val_every_n_epoch=40 trainer.max_epochs=40 augmentations=baseline256 sampling.enable_caching=True proj=pami2_t_arch_search_02_2 arch.timm.name=rexnet_100 seed=2
+sleep 2
+mml train tasks=pami pivot.name=mura_xr_finger mode.cv=False mode.nested=False mode.store_parameters=False sampling.balanced=True sampling.batch_size=300 callbacks=none lr_scheduler=step +trainer.check_val_every_n_epoch=40 trainer.max_epochs=40 augmentations=baseline256 sampling.enable_caching=True proj=pami2_t_arch_search_02_2 arch.timm.name=ecaresnet50d seed=2
+sleep 2
+mml train tasks=pami pivot.name=mura_xr_finger mode.cv=False mode.nested=False mode.store_parameters=False sampling.balanced=True sampling.batch_size=300 callbacks=none lr_scheduler=step +trainer.check_val_every_n_epoch=40 trainer.max_epochs=40 augmentations=baseline256 sampling.enable_caching=True proj=pami2_t_arch_search_02_2 arch.timm.name=cspdarknet53 seed=2
+sleep 2
+mml train tasks=pami pivot.name=mura_xr_finger mode.cv=False mode.nested=False mode.store_parameters=False sampling.balanced=True sampling.batch_size=300 callbacks=none lr_scheduler=step +trainer.check_val_every_n_epoch=40 trainer.max_epochs=40 augmentations=baseline256 sampling.enable_caching=True proj=pami2_t_arch_search_02_2 arch.timm.name=mixnet_l seed=2
+sleep 2
+mml train tasks=pami pivot.name=mura_xr_finger mode.cv=False mode.nested=False mode.store_parameters=False sampling.balanced=True sampling.batch_size=300 callbacks=none lr_scheduler=step +trainer.check_val_every_n_epoch=40 trainer.max_epochs=40 augmentations=baseline256 sampling.enable_caching=True proj=pami2_t_arch_search_02_2 arch.timm.name=cspresnext50 seed=2
+sleep 2
+mml train tasks=pami pivot.name=mura_xr_finger mode.cv=False mode.nested=False mode.store_parameters=False sampling.balanced=True sampling.batch_size=300 callbacks=none lr_scheduler=step +trainer.check_val_every_n_epoch=40 trainer.max_epochs=40 augmentations=baseline256 sampling.enable_caching=True proj=pami2_t_arch_search_02_2 arch.timm.name=cspresnet50 seed=2
+sleep 2
+mml train tasks=pami pivot.name=mura_xr_finger mode.cv=False mode.nested=False mode.store_parameters=False sampling.balanced=True sampling.batch_size=300 callbacks=none lr_scheduler=step +trainer.check_val_every_n_epoch=40 trainer.max_epochs=40 augmentations=baseline256 sampling.enable_caching=True proj=pami2_t_arch_search_02_2 arch.timm.name=ese_vovnet39b seed=2
+sleep 2
+mml train tasks=pami pivot.name=mura_xr_finger mode.cv=False mode.nested=False mode.store_parameters=False sampling.balanced=True sampling.batch_size=300 callbacks=none lr_scheduler=step +trainer.check_val_every_n_epoch=40 trainer.max_epochs=40 augmentations=baseline256 sampling.enable_caching=True proj=pami2_t_arch_search_02_2 arch.timm.name=resnest50d seed=2
+sleep 2
+mml train tasks=pami pivot.name=mura_xr_finger mode.cv=False mode.nested=False mode.store_parameters=False sampling.balanced=True sampling.batch_size=300 callbacks=none lr_scheduler=step +trainer.check_val_every_n_epoch=40 trainer.max_epochs=40 augmentations=baseline256 sampling.enable_caching=True proj=pami2_t_arch_search_02_2 arch.timm.name=hrnet_w18 seed=2
+sleep 2
+mml train tasks=pami pivot.name=mura_xr_finger mode.cv=False mode.nested=False mode.store_parameters=False sampling.balanced=True sampling.batch_size=300 callbacks=none lr_scheduler=step +trainer.check_val_every_n_epoch=40 trainer.max_epochs=40 augmentations=baseline256 sampling.enable_caching=True proj=pami2_t_arch_search_02_2 arch.timm.name=skresnet34 seed=2
+sleep 2
+mml train tasks=pami pivot.name=mura_xr_finger mode.cv=False mode.nested=False mode.store_parameters=False sampling.balanced=True sampling.batch_size=300 callbacks=none lr_scheduler=step +trainer.check_val_every_n_epoch=40 trainer.max_epochs=40 augmentations=baseline256 sampling.enable_caching=True proj=pami2_t_arch_search_02_2 arch.timm.name=mobilenetv3_large_100 seed=2
+sleep 2
+mml train tasks=pami pivot.name=mura_xr_finger mode.cv=False mode.nested=False mode.store_parameters=False sampling.balanced=True sampling.batch_size=300 callbacks=none lr_scheduler=step +trainer.check_val_every_n_epoch=40 trainer.max_epochs=40 augmentations=baseline256 sampling.enable_caching=True proj=pami2_t_arch_search_02_2 arch.timm.name=res2net50_26w_4s seed=2
+sleep 2
+mml train tasks=pami pivot.name=mura_xr_elbow mode.cv=False mode.nested=False mode.store_parameters=False sampling.balanced=True sampling.batch_size=300 callbacks=none lr_scheduler=step +trainer.check_val_every_n_epoch=40 trainer.max_epochs=40 augmentations=baseline256 sampling.enable_caching=True proj=pami2_t_arch_search_02_2 arch.timm.name=tf_efficientnet_b2 seed=2
+sleep 2
+mml train tasks=pami pivot.name=mura_xr_elbow mode.cv=False mode.nested=False mode.store_parameters=False sampling.balanced=True sampling.batch_size=300 callbacks=none lr_scheduler=step +trainer.check_val_every_n_epoch=40 trainer.max_epochs=40 augmentations=baseline256 sampling.enable_caching=True proj=pami2_t_arch_search_02_2 arch.timm.name=tf_efficientnet_b2_ap seed=2
+sleep 2
+mml train tasks=pami pivot.name=mura_xr_elbow mode.cv=False mode.nested=False mode.store_parameters=False sampling.balanced=True sampling.batch_size=300 callbacks=none lr_scheduler=step +trainer.check_val_every_n_epoch=40 trainer.max_epochs=40 augmentations=baseline256 sampling.enable_caching=True proj=pami2_t_arch_search_02_2 arch.timm.name=tf_efficientnet_b2_ns seed=2
+sleep 2
+mml train tasks=pami pivot.name=mura_xr_elbow mode.cv=False mode.nested=False mode.store_parameters=False sampling.balanced=True sampling.batch_size=300 callbacks=none lr_scheduler=step +trainer.check_val_every_n_epoch=40 trainer.max_epochs=40 augmentations=baseline256 sampling.enable_caching=True proj=pami2_t_arch_search_02_2 arch.timm.name=tf_efficientnet_cc_b0_4e seed=2
+sleep 2
+mml train tasks=pami pivot.name=mura_xr_elbow mode.cv=False mode.nested=False mode.store_parameters=False sampling.balanced=True sampling.batch_size=300 callbacks=none lr_scheduler=step +trainer.check_val_every_n_epoch=40 trainer.max_epochs=40 augmentations=baseline256 sampling.enable_caching=True proj=pami2_t_arch_search_02_2 arch.timm.name=swsl_resnet50 seed=2
+sleep 2
+mml train tasks=pami pivot.name=mura_xr_elbow mode.cv=False mode.nested=False mode.store_parameters=False sampling.balanced=True sampling.batch_size=300 callbacks=none lr_scheduler=step +trainer.check_val_every_n_epoch=40 trainer.max_epochs=40 augmentations=baseline256 sampling.enable_caching=True proj=pami2_t_arch_search_02_2 arch.timm.name=ssl_resnext50_32x4d seed=2
+sleep 2
+mml train tasks=pami pivot.name=mura_xr_elbow mode.cv=False mode.nested=False mode.store_parameters=False sampling.balanced=True sampling.batch_size=300 callbacks=none lr_scheduler=step +trainer.check_val_every_n_epoch=40 trainer.max_epochs=40 augmentations=baseline256 sampling.enable_caching=True proj=pami2_t_arch_search_02_2 arch.timm.name=regnetx_032 seed=2
+sleep 2
+mml train tasks=pami pivot.name=mura_xr_elbow mode.cv=False mode.nested=False mode.store_parameters=False sampling.balanced=True sampling.batch_size=300 callbacks=none lr_scheduler=step +trainer.check_val_every_n_epoch=40 trainer.max_epochs=40 augmentations=baseline256 sampling.enable_caching=True proj=pami2_t_arch_search_02_2 arch.timm.name=regnety_032 seed=2
+sleep 2
+mml train tasks=pami pivot.name=mura_xr_elbow mode.cv=False mode.nested=False mode.store_parameters=False sampling.balanced=True sampling.batch_size=300 callbacks=none lr_scheduler=step +trainer.check_val_every_n_epoch=40 trainer.max_epochs=40 augmentations=baseline256 sampling.enable_caching=True proj=pami2_t_arch_search_02_2 arch.timm.name=rexnet_100 seed=2
+sleep 2
+mml train tasks=pami pivot.name=mura_xr_elbow mode.cv=False mode.nested=False mode.store_parameters=False sampling.balanced=True sampling.batch_size=300 callbacks=none lr_scheduler=step +trainer.check_val_every_n_epoch=40 trainer.max_epochs=40 augmentations=baseline256 sampling.enable_caching=True proj=pami2_t_arch_search_02_2 arch.timm.name=ecaresnet50d seed=2
+sleep 2
+mml train tasks=pami pivot.name=mura_xr_elbow mode.cv=False mode.nested=False mode.store_parameters=False sampling.balanced=True sampling.batch_size=300 callbacks=none lr_scheduler=step +trainer.check_val_every_n_epoch=40 trainer.max_epochs=40 augmentations=baseline256 sampling.enable_caching=True proj=pami2_t_arch_search_02_2 arch.timm.name=cspdarknet53 seed=2
+sleep 2
+mml train tasks=pami pivot.name=mura_xr_elbow mode.cv=False mode.nested=False mode.store_parameters=False sampling.balanced=True sampling.batch_size=300 callbacks=none lr_scheduler=step +trainer.check_val_every_n_epoch=40 trainer.max_epochs=40 augmentations=baseline256 sampling.enable_caching=True proj=pami2_t_arch_search_02_2 arch.timm.name=mixnet_l seed=2
+sleep 2
+mml train tasks=pami pivot.name=mura_xr_elbow mode.cv=False mode.nested=False mode.store_parameters=False sampling.balanced=True sampling.batch_size=300 callbacks=none lr_scheduler=step +trainer.check_val_every_n_epoch=40 trainer.max_epochs=40 augmentations=baseline256 sampling.enable_caching=True proj=pami2_t_arch_search_02_2 arch.timm.name=cspresnext50 seed=2
+sleep 2
+mml train tasks=pami pivot.name=mura_xr_elbow mode.cv=False mode.nested=False mode.store_parameters=False sampling.balanced=True sampling.batch_size=300 callbacks=none lr_scheduler=step +trainer.check_val_every_n_epoch=40 trainer.max_epochs=40 augmentations=baseline256 sampling.enable_caching=True proj=pami2_t_arch_search_02_2 arch.timm.name=cspresnet50 seed=2
+sleep 2
+mml train tasks=pami pivot.name=mura_xr_elbow mode.cv=False mode.nested=False mode.store_parameters=False sampling.balanced=True sampling.batch_size=300 callbacks=none lr_scheduler=step +trainer.check_val_every_n_epoch=40 trainer.max_epochs=40 augmentations=baseline256 sampling.enable_caching=True proj=pami2_t_arch_search_02_2 arch.timm.name=ese_vovnet39b seed=2
+sleep 2
+mml train tasks=pami pivot.name=mura_xr_elbow mode.cv=False mode.nested=False mode.store_parameters=False sampling.balanced=True sampling.batch_size=300 callbacks=none lr_scheduler=step +trainer.check_val_every_n_epoch=40 trainer.max_epochs=40 augmentations=baseline256 sampling.enable_caching=True proj=pami2_t_arch_search_02_2 arch.timm.name=resnest50d seed=2
+sleep 2
+mml train tasks=pami pivot.name=mura_xr_elbow mode.cv=False mode.nested=False mode.store_parameters=False sampling.balanced=True sampling.batch_size=300 callbacks=none lr_scheduler=step +trainer.check_val_every_n_epoch=40 trainer.max_epochs=40 augmentations=baseline256 sampling.enable_caching=True proj=pami2_t_arch_search_02_2 arch.timm.name=hrnet_w18 seed=2
+sleep 2
+mml train tasks=pami pivot.name=mura_xr_elbow mode.cv=False mode.nested=False mode.store_parameters=False sampling.balanced=True sampling.batch_size=300 callbacks=none lr_scheduler=step +trainer.check_val_every_n_epoch=40 trainer.max_epochs=40 augmentations=baseline256 sampling.enable_caching=True proj=pami2_t_arch_search_02_2 arch.timm.name=skresnet34 seed=2
+sleep 2
+mml train tasks=pami pivot.name=mura_xr_elbow mode.cv=False mode.nested=False mode.store_parameters=False sampling.balanced=True sampling.batch_size=300 callbacks=none lr_scheduler=step +trainer.check_val_every_n_epoch=40 trainer.max_epochs=40 augmentations=baseline256 sampling.enable_caching=True proj=pami2_t_arch_search_02_2 arch.timm.name=mobilenetv3_large_100 seed=2
+sleep 2
+mml train tasks=pami pivot.name=mura_xr_elbow mode.cv=False mode.nested=False mode.store_parameters=False sampling.balanced=True sampling.batch_size=300 callbacks=none lr_scheduler=step +trainer.check_val_every_n_epoch=40 trainer.max_epochs=40 augmentations=baseline256 sampling.enable_caching=True proj=pami2_t_arch_search_02_2 arch.timm.name=res2net50_26w_4s seed=2
+sleep 2
+mml train tasks=pami pivot.name=bean_plant_disease_classification mode.cv=False mode.nested=False mode.store_parameters=False sampling.balanced=True sampling.batch_size=300 callbacks=none lr_scheduler=step +trainer.check_val_every_n_epoch=40 trainer.max_epochs=40 augmentations=baseline256 sampling.enable_caching=True proj=pami2_t_arch_search_02_2 arch.timm.name=tf_efficientnet_b2 seed=2
+sleep 2
+mml train tasks=pami pivot.name=bean_plant_disease_classification mode.cv=False mode.nested=False mode.store_parameters=False sampling.balanced=True sampling.batch_size=300 callbacks=none lr_scheduler=step +trainer.check_val_every_n_epoch=40 trainer.max_epochs=40 augmentations=baseline256 sampling.enable_caching=True proj=pami2_t_arch_search_02_2 arch.timm.name=tf_efficientnet_b2_ap seed=2
+sleep 2
+mml train tasks=pami pivot.name=bean_plant_disease_classification mode.cv=False mode.nested=False mode.store_parameters=False sampling.balanced=True sampling.batch_size=300 callbacks=none lr_scheduler=step +trainer.check_val_every_n_epoch=40 trainer.max_epochs=40 augmentations=baseline256 sampling.enable_caching=True proj=pami2_t_arch_search_02_2 arch.timm.name=tf_efficientnet_b2_ns seed=2
+sleep 2
+mml train tasks=pami pivot.name=bean_plant_disease_classification mode.cv=False mode.nested=False mode.store_parameters=False sampling.balanced=True sampling.batch_size=300 callbacks=none lr_scheduler=step +trainer.check_val_every_n_epoch=40 trainer.max_epochs=40 augmentations=baseline256 sampling.enable_caching=True proj=pami2_t_arch_search_02_2 arch.timm.name=tf_efficientnet_cc_b0_4e seed=2
+sleep 2
+mml train tasks=pami pivot.name=bean_plant_disease_classification mode.cv=False mode.nested=False mode.store_parameters=False sampling.balanced=True sampling.batch_size=300 callbacks=none lr_scheduler=step +trainer.check_val_every_n_epoch=40 trainer.max_epochs=40 augmentations=baseline256 sampling.enable_caching=True proj=pami2_t_arch_search_02_2 arch.timm.name=swsl_resnet50 seed=2
+sleep 2
+mml train tasks=pami pivot.name=bean_plant_disease_classification mode.cv=False mode.nested=False mode.store_parameters=False sampling.balanced=True sampling.batch_size=300 callbacks=none lr_scheduler=step +trainer.check_val_every_n_epoch=40 trainer.max_epochs=40 augmentations=baseline256 sampling.enable_caching=True proj=pami2_t_arch_search_02_2 arch.timm.name=ssl_resnext50_32x4d seed=2
+sleep 2
+mml train tasks=pami pivot.name=bean_plant_disease_classification mode.cv=False mode.nested=False mode.store_parameters=False sampling.balanced=True sampling.batch_size=300 callbacks=none lr_scheduler=step +trainer.check_val_every_n_epoch=40 trainer.max_epochs=40 augmentations=baseline256 sampling.enable_caching=True proj=pami2_t_arch_search_02_2 arch.timm.name=regnetx_032 seed=2
+sleep 2
+mml train tasks=pami pivot.name=bean_plant_disease_classification mode.cv=False mode.nested=False mode.store_parameters=False sampling.balanced=True sampling.batch_size=300 callbacks=none lr_scheduler=step +trainer.check_val_every_n_epoch=40 trainer.max_epochs=40 augmentations=baseline256 sampling.enable_caching=True proj=pami2_t_arch_search_02_2 arch.timm.name=regnety_032 seed=2
+sleep 2
+mml train tasks=pami pivot.name=bean_plant_disease_classification mode.cv=False mode.nested=False mode.store_parameters=False sampling.balanced=True sampling.batch_size=300 callbacks=none lr_scheduler=step +trainer.check_val_every_n_epoch=40 trainer.max_epochs=40 augmentations=baseline256 sampling.enable_caching=True proj=pami2_t_arch_search_02_2 arch.timm.name=rexnet_100 seed=2
+sleep 2
+mml train tasks=pami pivot.name=bean_plant_disease_classification mode.cv=False mode.nested=False mode.store_parameters=False sampling.balanced=True sampling.batch_size=300 callbacks=none lr_scheduler=step +trainer.check_val_every_n_epoch=40 trainer.max_epochs=40 augmentations=baseline256 sampling.enable_caching=True proj=pami2_t_arch_search_02_2 arch.timm.name=ecaresnet50d seed=2
+sleep 2
+mml train tasks=pami pivot.name=bean_plant_disease_classification mode.cv=False mode.nested=False mode.store_parameters=False sampling.balanced=True sampling.batch_size=300 callbacks=none lr_scheduler=step +trainer.check_val_every_n_epoch=40 trainer.max_epochs=40 augmentations=baseline256 sampling.enable_caching=True proj=pami2_t_arch_search_02_2 arch.timm.name=cspdarknet53 seed=2
+sleep 2
+mml train tasks=pami pivot.name=bean_plant_disease_classification mode.cv=False mode.nested=False mode.store_parameters=False sampling.balanced=True sampling.batch_size=300 callbacks=none lr_scheduler=step +trainer.check_val_every_n_epoch=40 trainer.max_epochs=40 augmentations=baseline256 sampling.enable_caching=True proj=pami2_t_arch_search_02_2 arch.timm.name=mixnet_l seed=2
+sleep 2
+mml train tasks=pami pivot.name=bean_plant_disease_classification mode.cv=False mode.nested=False mode.store_parameters=False sampling.balanced=True sampling.batch_size=300 callbacks=none lr_scheduler=step +trainer.check_val_every_n_epoch=40 trainer.max_epochs=40 augmentations=baseline256 sampling.enable_caching=True proj=pami2_t_arch_search_02_2 arch.timm.name=cspresnext50 seed=2
+sleep 2
+mml train tasks=pami pivot.name=bean_plant_disease_classification mode.cv=False mode.nested=False mode.store_parameters=False sampling.balanced=True sampling.batch_size=300 callbacks=none lr_scheduler=step +trainer.check_val_every_n_epoch=40 trainer.max_epochs=40 augmentations=baseline256 sampling.enable_caching=True proj=pami2_t_arch_search_02_2 arch.timm.name=cspresnet50 seed=2
+sleep 2
+mml train tasks=pami pivot.name=bean_plant_disease_classification mode.cv=False mode.nested=False mode.store_parameters=False sampling.balanced=True sampling.batch_size=300 callbacks=none lr_scheduler=step +trainer.check_val_every_n_epoch=40 trainer.max_epochs=40 augmentations=baseline256 sampling.enable_caching=True proj=pami2_t_arch_search_02_2 arch.timm.name=ese_vovnet39b seed=2
+sleep 2
+mml train tasks=pami pivot.name=bean_plant_disease_classification mode.cv=False mode.nested=False mode.store_parameters=False sampling.balanced=True sampling.batch_size=300 callbacks=none lr_scheduler=step +trainer.check_val_every_n_epoch=40 trainer.max_epochs=40 augmentations=baseline256 sampling.enable_caching=True proj=pami2_t_arch_search_02_2 arch.timm.name=resnest50d seed=2
+sleep 2
+mml train tasks=pami pivot.name=bean_plant_disease_classification mode.cv=False mode.nested=False mode.store_parameters=False sampling.balanced=True sampling.batch_size=300 callbacks=none lr_scheduler=step +trainer.check_val_every_n_epoch=40 trainer.max_epochs=40 augmentations=baseline256 sampling.enable_caching=True proj=pami2_t_arch_search_02_2 arch.timm.name=hrnet_w18 seed=2
+sleep 2
+mml train tasks=pami pivot.name=bean_plant_disease_classification mode.cv=False mode.nested=False mode.store_parameters=False sampling.balanced=True sampling.batch_size=300 callbacks=none lr_scheduler=step +trainer.check_val_every_n_epoch=40 trainer.max_epochs=40 augmentations=baseline256 sampling.enable_caching=True proj=pami2_t_arch_search_02_2 arch.timm.name=skresnet34 seed=2
+sleep 2
+mml train tasks=pami pivot.name=bean_plant_disease_classification mode.cv=False mode.nested=False mode.store_parameters=False sampling.balanced=True sampling.batch_size=300 callbacks=none lr_scheduler=step +trainer.check_val_every_n_epoch=40 trainer.max_epochs=40 augmentations=baseline256 sampling.enable_caching=True proj=pami2_t_arch_search_02_2 arch.timm.name=mobilenetv3_large_100 seed=2
+sleep 2
+mml train tasks=pami pivot.name=bean_plant_disease_classification mode.cv=False mode.nested=False mode.store_parameters=False sampling.balanced=True sampling.batch_size=300 callbacks=none lr_scheduler=step +trainer.check_val_every_n_epoch=40 trainer.max_epochs=40 augmentations=baseline256 sampling.enable_caching=True proj=pami2_t_arch_search_02_2 arch.timm.name=res2net50_26w_4s seed=2
+sleep 2
+mml train tasks=pami pivot.name=aptos19_blindness_detection mode.cv=False mode.nested=False mode.store_parameters=False sampling.balanced=True sampling.batch_size=300 callbacks=none lr_scheduler=step +trainer.check_val_every_n_epoch=40 trainer.max_epochs=40 augmentations=baseline256 sampling.enable_caching=True proj=pami2_t_arch_search_02_2 arch.timm.name=tf_efficientnet_b2 seed=2
+sleep 2
+mml train tasks=pami pivot.name=aptos19_blindness_detection mode.cv=False mode.nested=False mode.store_parameters=False sampling.balanced=True sampling.batch_size=300 callbacks=none lr_scheduler=step +trainer.check_val_every_n_epoch=40 trainer.max_epochs=40 augmentations=baseline256 sampling.enable_caching=True proj=pami2_t_arch_search_02_2 arch.timm.name=tf_efficientnet_b2_ap seed=2
+sleep 2
+mml train tasks=pami pivot.name=aptos19_blindness_detection mode.cv=False mode.nested=False mode.store_parameters=False sampling.balanced=True sampling.batch_size=300 callbacks=none lr_scheduler=step +trainer.check_val_every_n_epoch=40 trainer.max_epochs=40 augmentations=baseline256 sampling.enable_caching=True proj=pami2_t_arch_search_02_2 arch.timm.name=tf_efficientnet_b2_ns seed=2
+sleep 2
+mml train tasks=pami pivot.name=aptos19_blindness_detection mode.cv=False mode.nested=False mode.store_parameters=False sampling.balanced=True sampling.batch_size=300 callbacks=none lr_scheduler=step +trainer.check_val_every_n_epoch=40 trainer.max_epochs=40 augmentations=baseline256 sampling.enable_caching=True proj=pami2_t_arch_search_02_2 arch.timm.name=tf_efficientnet_cc_b0_4e seed=2
+sleep 2
+mml train tasks=pami pivot.name=aptos19_blindness_detection mode.cv=False mode.nested=False mode.store_parameters=False sampling.balanced=True sampling.batch_size=300 callbacks=none lr_scheduler=step +trainer.check_val_every_n_epoch=40 trainer.max_epochs=40 augmentations=baseline256 sampling.enable_caching=True proj=pami2_t_arch_search_02_2 arch.timm.name=swsl_resnet50 seed=2
+sleep 2
+mml train tasks=pami pivot.name=aptos19_blindness_detection mode.cv=False mode.nested=False mode.store_parameters=False sampling.balanced=True sampling.batch_size=300 callbacks=none lr_scheduler=step +trainer.check_val_every_n_epoch=40 trainer.max_epochs=40 augmentations=baseline256 sampling.enable_caching=True proj=pami2_t_arch_search_02_2 arch.timm.name=ssl_resnext50_32x4d seed=2
+sleep 2
+mml train tasks=pami pivot.name=aptos19_blindness_detection mode.cv=False mode.nested=False mode.store_parameters=False sampling.balanced=True sampling.batch_size=300 callbacks=none lr_scheduler=step +trainer.check_val_every_n_epoch=40 trainer.max_epochs=40 augmentations=baseline256 sampling.enable_caching=True proj=pami2_t_arch_search_02_2 arch.timm.name=regnetx_032 seed=2
+sleep 2
+mml train tasks=pami pivot.name=aptos19_blindness_detection mode.cv=False mode.nested=False mode.store_parameters=False sampling.balanced=True sampling.batch_size=300 callbacks=none lr_scheduler=step +trainer.check_val_every_n_epoch=40 trainer.max_epochs=40 augmentations=baseline256 sampling.enable_caching=True proj=pami2_t_arch_search_02_2 arch.timm.name=regnety_032 seed=2
+sleep 2
+mml train tasks=pami pivot.name=aptos19_blindness_detection mode.cv=False mode.nested=False mode.store_parameters=False sampling.balanced=True sampling.batch_size=300 callbacks=none lr_scheduler=step +trainer.check_val_every_n_epoch=40 trainer.max_epochs=40 augmentations=baseline256 sampling.enable_caching=True proj=pami2_t_arch_search_02_2 arch.timm.name=rexnet_100 seed=2
+sleep 2
+mml train tasks=pami pivot.name=aptos19_blindness_detection mode.cv=False mode.nested=False mode.store_parameters=False sampling.balanced=True sampling.batch_size=300 callbacks=none lr_scheduler=step +trainer.check_val_every_n_epoch=40 trainer.max_epochs=40 augmentations=baseline256 sampling.enable_caching=True proj=pami2_t_arch_search_02_2 arch.timm.name=ecaresnet50d seed=2
+sleep 2
+mml train tasks=pami pivot.name=aptos19_blindness_detection mode.cv=False mode.nested=False mode.store_parameters=False sampling.balanced=True sampling.batch_size=300 callbacks=none lr_scheduler=step +trainer.check_val_every_n_epoch=40 trainer.max_epochs=40 augmentations=baseline256 sampling.enable_caching=True proj=pami2_t_arch_search_02_2 arch.timm.name=cspdarknet53 seed=2
+sleep 2
+mml train tasks=pami pivot.name=aptos19_blindness_detection mode.cv=False mode.nested=False mode.store_parameters=False sampling.balanced=True sampling.batch_size=300 callbacks=none lr_scheduler=step +trainer.check_val_every_n_epoch=40 trainer.max_epochs=40 augmentations=baseline256 sampling.enable_caching=True proj=pami2_t_arch_search_02_2 arch.timm.name=mixnet_l seed=2
+sleep 2
+mml train tasks=pami pivot.name=aptos19_blindness_detection mode.cv=False mode.nested=False mode.store_parameters=False sampling.balanced=True sampling.batch_size=300 callbacks=none lr_scheduler=step +trainer.check_val_every_n_epoch=40 trainer.max_epochs=40 augmentations=baseline256 sampling.enable_caching=True proj=pami2_t_arch_search_02_2 arch.timm.name=cspresnext50 seed=2
+sleep 2
+mml train tasks=pami pivot.name=aptos19_blindness_detection mode.cv=False mode.nested=False mode.store_parameters=False sampling.balanced=True sampling.batch_size=300 callbacks=none lr_scheduler=step +trainer.check_val_every_n_epoch=40 trainer.max_epochs=40 augmentations=baseline256 sampling.enable_caching=True proj=pami2_t_arch_search_02_2 arch.timm.name=cspresnet50 seed=2
+sleep 2
+mml train tasks=pami pivot.name=aptos19_blindness_detection mode.cv=False mode.nested=False mode.store_parameters=False sampling.balanced=True sampling.batch_size=300 callbacks=none lr_scheduler=step +trainer.check_val_every_n_epoch=40 trainer.max_epochs=40 augmentations=baseline256 sampling.enable_caching=True proj=pami2_t_arch_search_02_2 arch.timm.name=ese_vovnet39b seed=2
+sleep 2
+mml train tasks=pami pivot.name=aptos19_blindness_detection mode.cv=False mode.nested=False mode.store_parameters=False sampling.balanced=True sampling.batch_size=300 callbacks=none lr_scheduler=step +trainer.check_val_every_n_epoch=40 trainer.max_epochs=40 augmentations=baseline256 sampling.enable_caching=True proj=pami2_t_arch_search_02_2 arch.timm.name=resnest50d seed=2
+sleep 2
+mml train tasks=pami pivot.name=aptos19_blindness_detection mode.cv=False mode.nested=False mode.store_parameters=False sampling.balanced=True sampling.batch_size=300 callbacks=none lr_scheduler=step +trainer.check_val_every_n_epoch=40 trainer.max_epochs=40 augmentations=baseline256 sampling.enable_caching=True proj=pami2_t_arch_search_02_2 arch.timm.name=hrnet_w18 seed=2
+sleep 2
+mml train tasks=pami pivot.name=aptos19_blindness_detection mode.cv=False mode.nested=False mode.store_parameters=False sampling.balanced=True sampling.batch_size=300 callbacks=none lr_scheduler=step +trainer.check_val_every_n_epoch=40 trainer.max_epochs=40 augmentations=baseline256 sampling.enable_caching=True proj=pami2_t_arch_search_02_2 arch.timm.name=skresnet34 seed=2
+sleep 2
+mml train tasks=pami pivot.name=aptos19_blindness_detection mode.cv=False mode.nested=False mode.store_parameters=False sampling.balanced=True sampling.batch_size=300 callbacks=none lr_scheduler=step +trainer.check_val_every_n_epoch=40 trainer.max_epochs=40 augmentations=baseline256 sampling.enable_caching=True proj=pami2_t_arch_search_02_2 arch.timm.name=mobilenetv3_large_100 seed=2
+sleep 2
+mml train tasks=pami pivot.name=aptos19_blindness_detection mode.cv=False mode.nested=False mode.store_parameters=False sampling.balanced=True sampling.batch_size=300 callbacks=none lr_scheduler=step +trainer.check_val_every_n_epoch=40 trainer.max_epochs=40 augmentations=baseline256 sampling.enable_caching=True proj=pami2_t_arch_search_02_2 arch.timm.name=res2net50_26w_4s seed=2
+sleep 2
