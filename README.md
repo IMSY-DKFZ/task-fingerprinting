@@ -1,8 +1,8 @@
 # Beyond Knowledge Silos: Task Fingerprinting for Democratization of Medical Imaging AI
 
-This repository accompanies our (submitted) paper and provides code to reproduce the experiments. 
-It provides intermediate results that allow to explore the experiments or test other task distances
-to compare outcomes. 
+This repository accompanies our [paper](https://arxiv.org/abs/2412.08763) (currently under review) and provides code 
+to reproduce the experiments.  It provides intermediate results that allow to explore the experiments or test other 
+task distances to compare outcomes. 
 
 ## Structure
 
