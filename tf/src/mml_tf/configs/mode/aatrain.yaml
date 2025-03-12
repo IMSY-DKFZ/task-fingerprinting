@@ -1,0 +1,16 @@
+# @package _global_
+
+# LICENSE HEADER MANAGED BY add-license-header
+#
+# SPDX-FileCopyrightText: Copyright 2025 German Cancer Research Center (DKFZ) and contributors.
+# SPDX-License-Identifier: MIT
+#
+
+# convenience config entry to call train scheduler with AutoAugment injection
+defaults:
+  - /mode@_global_: train
+  - _self_
+
+mode:
+  scheduler:
+    _target_: mml_tf.activate.AALoadingTrainScheduler
