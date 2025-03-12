@@ -1,6 +1,6 @@
 # Beyond Knowledge Silos: Task Fingerprinting for Democratization of Medical Imaging AI
 
-This repositories accompanies our (submitted) paper and provides code to reproduce the experiments. 
+This repository accompanies our (submitted) paper and provides code to reproduce the experiments. 
 It provides intermediate results that allow to explore the experiments or test other task distances
 to compare outcomes. 
 
@@ -17,7 +17,7 @@ to compare outcomes.
 
 ## MML
 
-The software and experiments are based on the `mml-core` package. See here fore details.
+The software and experiments are based on the `mml-core` package. See [here](https://github.com/IMSY-DKFZ/mml) fore details.
 
 ## License
 
@@ -28,15 +28,12 @@ Copyright German Cancer Research Center (DKFZ) and contributors.
 Please cite our paper alongside.
 
 ```
- @article{Godau2024TaskF,
-          title="Beyond Knowledge Silos: Task Fingerprinting for Democratization of Medical Imaging AI",
-          author="Godau, Patrick and Srivastava, Akriti and Adler, Tim and Maier-Hein, Lena",
-          journal={TBD},
-          year={TBD},
-          volume={TBD},
-          pages={TBD},
-          url={TBD}
- }
+@article{godau2024beyond,
+  title={Beyond Knowledge Silos: Task Fingerprinting for Democratization of Medical Imaging AI},
+  author={Godau, Patrick and Srivastava, Akriti and Adler, Tim and Maier-Hein, Lena},
+  journal={arXiv preprint arXiv:2412.08763},
+  year={2024}
+}
 ```
 
 ## Contact

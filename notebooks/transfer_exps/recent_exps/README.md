@@ -34,7 +34,7 @@ pip install mml-core
 
 ```commandline
 # required for full reproduction
-pip install mml-data              # provides the datasets
+pip install mml-tasks              # provides the datasets
 pip install mml-tags              # provides the shrinking tag
 pip install mml-dimensionality    # compute dimensionality
 pip install mml-similarity        # feature extraction
