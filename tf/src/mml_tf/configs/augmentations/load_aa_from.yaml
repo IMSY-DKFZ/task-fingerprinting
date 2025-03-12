@@ -1,0 +1,13 @@
+# @package augmentations
+
+# allows to backward compatibly load AutoAugment trained pipelines
+
+normalization: imagenet
+cpu:
+  backend: albumentations
+  pipeline:
+    - name: LoadAA
+      source: ${augmentations.source}
+      path: ???
+gpu: { }
+source: ???
