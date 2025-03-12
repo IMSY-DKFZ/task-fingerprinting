@@ -1,6 +1,6 @@
 # @package _global_
 
-# all shrinkable task set for PAMI 2022, tagged!
+# all shrinkable tasks, tagged!
 
 task_list:
   - 'lapgyn4_anatomical_structures'

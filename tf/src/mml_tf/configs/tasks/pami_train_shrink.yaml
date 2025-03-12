@@ -1,6 +1,6 @@
 # @package _global_
 
-# train task set for PAMI 2022 (pivot gets the shrink tag!)
+# train task set (pivot gets the shrink tag!)
 
 task_list:
   - 'lapgyn4_anatomical_structures'

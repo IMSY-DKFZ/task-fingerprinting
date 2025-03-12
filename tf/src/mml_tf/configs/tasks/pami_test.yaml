@@ -1,6 +1,6 @@
 # @package _global_
 
-# test task set for PAMI 2022
+# test task set
 
 task_list:
   - 'idle_action_recognition'

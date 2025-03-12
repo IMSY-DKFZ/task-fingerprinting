@@ -1,6 +1,6 @@
 # @package _global_
 
-# all task set for PAMI 2022 (this is a template for shrinked pivot task)
+# all task (this is a template for shrunk pivot task)
 
 task_list:
   - 'lapgyn4_anatomical_structures'

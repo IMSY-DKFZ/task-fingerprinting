@@ -1,6 +1,6 @@
 # @package _global_
 
-# train task set for PAMI 2022
+# train task set
 
 task_list:
   - 'lapgyn4_anatomical_structures'
