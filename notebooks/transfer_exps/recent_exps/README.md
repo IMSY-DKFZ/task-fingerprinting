@@ -46,7 +46,8 @@ pip install mml-lsf               # lsf cluster utils
 * set env variables
 
 ```commandline
-# create a mml.env file
+# create a mml.env file, recommeded location in home config folder
+cd ~/.config
 mml-env-setup
 # provide the env file location to conda environment as variable
 pwd | conda env config vars set MML_ENV_PATH=$(</dev/stdin)/mml.env
@@ -81,11 +82,13 @@ pip install .
 
 * test your installation by typing `mml --version` and check if all plugins are listed
 * the plain `mml` command also checks the correct setting of basic env variables
-* if running on the cluster you need to create this environments there as well, in addition set up a runner script
+* if running on the cluster you need to create this environment there as well, in addition set up a runner script
     * `mml.sh` that loads cuda, activates the `tf_recent` conda env and forwards the args to `mml` adding `sys=cluster`
 * commands that need to be submitted (or run locally) are found in `notebooks/transfer_exps/recent_exps`
-    * see `recent.ipynb` for details
-    * you may submit job batches as e.g. `ssh user@host 'bash -s' < notebooks/transfer_exps/recent_exps/baseline.txt`
+    * details can be found in the `recent.ipynb` notebook, that generates all `mml` calls
+    * these jobs are stored in the `.txt` files
+    * you may submit job batches as e.g. `ssh user@host 'bash -s' < notebooks/transfer_exps/recent_exps/SOME_EXP_GROUP.txt`
+    * alternatively the notebook also offers to run jobs locally or submit them directly (see at the end)
 
 ## Features and FIM extraction
 

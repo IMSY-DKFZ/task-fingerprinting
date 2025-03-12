@@ -1,7 +1,8 @@
 # Experimental notebooks
 
 > Note: Every notebook starts with an `mml.interactive.init()` that you might need to provide with the path to your 
-> `mml.env` file.
+> `mml.env` file. By default we set `Path('~/.config/mml.env').expanduser()` which is the recommended location for your 
+> `mml.env` config file.
 
 ## Overview
 
@@ -35,5 +36,5 @@ stored in the `cache` as well.
 ## Reproduction of Transferability Estimation Evaluation
 
 All downstream experiments on top of neural network training can be reproduced without re-running the simulations from 
-`transfer_exps`. The evaluation only relies on a recent (and public) version of `mml`.
+`transfer_exps`. The evaluation only relies on a recent ([and public](https://github.com/IMSY-DKFZ/mml)) version of `mml`.
 You need to use the same virtual environment as described in the `transfer_exps/recent_exps` README.
