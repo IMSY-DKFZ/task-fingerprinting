@@ -68,9 +68,9 @@ nano mml.env
 * depending on whether some of the plugin features shall be used there are additional variables (`drive` and `lsf`are
    not necessary)
     * if submitting to the LSF cluster is intended
-      see [here](https://git.dkfz.de/imsy/ise/mml/-/tree/718acbbc9c1892a07bd1e8bdef6c6e34f20d3948/plugins/lsf)
+      see [here](https://github.com/IMSY-DKFZ/mml/tree/main/plugins/lsf)
     * if the network drive shall be used to speed up installation
-      see [here](https://git.dkfz.de/imsy/ise/mml/-/tree/718acbbc9c1892a07bd1e8bdef6c6e34f20d3948/plugins/drive)
+      see [here](https://github.com/IMSY-DKFZ/mml/tree/main/plugins/drive)
 
 * finally this repo itself contains a plugin that provides evaluation capabilities
 
