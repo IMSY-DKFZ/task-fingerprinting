@@ -6,7 +6,7 @@ import torch
 from rich.progress import track
 
 from mml_tf.paths import DATA_PATH
-from mml_tf.tasks import all_tasks_including_shrunk, new_to_old, train_tasks
+from mml_tf.tasks import all_tasks_including_shrunk, new_to_old, train_tasks, task_infos, old_to_new
 
 Representation = Optional[Union[Set[str], torch.Tensor, np.ndarray, Tuple[np.ndarray, np.ndarray]]]
 
@@ -160,8 +160,17 @@ class TagBasedRepresentations(TaskRepresentations):
         self.sizes = {t: 0 for t in task_list}
 
     def load_representations(self):
-        with mml.interactive.default_file_manager() as fm:
+        if all([t.split(' --')[0].split('+')[0] in task_infos.num_samples for t in self.task_list]):
+            # for experiments on our tasks we can use the stored infos
             for task in self.task_list:
-                infos = fm.get_task_info(task.split(' --')[0], preprocess='none')
-                self.mapping[task] = set(infos['keywords'])
-                self.sizes[task] = sum(infos['class_occ'].values())
+                # undo any task splitting
+                full_task = task.split(' --')[0].split('+')[0]
+                self.mapping[task] = set(task_infos.keywords[full_task])
+                self.sizes[task] = task_infos.num_samples[full_task]
+        else:
+            # fall back on actually loading local tasks
+            with mml.interactive.default_file_manager() as fm:
+                for task in self.task_list:
+                    infos = fm.get_task_info(task.split(' --')[0].split('+')[0], preprocess='none')
+                    self.mapping[task] = set(infos['keywords'])
+                    self.sizes[task] = sum(infos['class_occ'].values())
