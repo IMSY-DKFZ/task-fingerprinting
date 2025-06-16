@@ -6,9 +6,11 @@ import torch
 from rich.progress import track
 
 from mml_tf.paths import DATA_PATH
-from mml_tf.tasks import all_tasks_including_shrunk, new_to_old, train_tasks, task_infos, old_to_new
+from mml_tf.tasks import all_tasks_including_shrunk, new_to_old, train_tasks, task_infos
 
 Representation = Optional[Union[Set[str], torch.Tensor, np.ndarray, Tuple[np.ndarray, np.ndarray]]]
+
+DEFAULT_PROBE_NETWORK = 'resnet34'
 
 
 class TaskRepresentations:
@@ -32,11 +34,16 @@ class DummyRepresentations(TaskRepresentations):
 class FullFeatureRepresentations(TaskRepresentations):
     """Numpy arrays like (samples x features)"""
 
-    def __init__(self, task_list: List[str] = all_tasks_including_shrunk):
+    def __init__(self, task_list: List[str] = all_tasks_including_shrunk, folder: str = 'features',
+                 probe_network: str = DEFAULT_PROBE_NETWORK):
+        self.folder: str = folder
+        self.probe_network: str = probe_network
+        if not (DATA_PATH / self.folder).exists():
+            raise ValueError(f'Gave source {self.folder}, but {DATA_PATH / self.folder} does not exist.')
         super().__init__(task_list=task_list, name='Full Features')
 
     def load_representations(self):
-        features_path = DATA_PATH / 'features'
+        features_path = DATA_PATH / self.folder
         for task in features_path.iterdir():
             if '+' in task.name:
                 _task = task.name.replace('+shrink_train?800', ' --shrink_train 800')
@@ -68,6 +75,7 @@ class BinnedFeatureRepresentations(TaskRepresentations):
         self.min_q = min_q
         self.max_q = max_q
         assert self.full_features.is_loaded(), 'load full features first'
+        self.probe_network = self.full_features.probe_network
 
     def load_representations(self):
         # get min and max per feature
@@ -106,6 +114,7 @@ class AveragedFeatureRepresentations(TaskRepresentations):
         super().__init__(task_list=full_features.task_list, name=f'Averaged Features')
         self.full_features = full_features
         assert self.full_features.is_loaded(), 'load full features first'
+        self.probe_network = self.full_features.probe_network
 
     def load_representations(self):
         for task in self.task_list:
@@ -129,6 +138,7 @@ class MeanAndCovarianceRepresentations(TaskRepresentations):
         super().__init__(task_list=full_features.task_list, name=f'Mean & Cov Features')
         self.full_features = full_features
         assert self.full_features.is_loaded(), 'load full features first'
+        self.probe_network = self.full_features.probe_network
 
     def load_representations(self):
         for task in self.task_list:
@@ -140,15 +150,21 @@ class MeanAndCovarianceRepresentations(TaskRepresentations):
 class FisherEmbeddingRepresentations(TaskRepresentations):
     """dicts with module name keys and torch arrays values"""
 
-    def __init__(self, task_list: List[str] = all_tasks_including_shrunk):
+    def __init__(self, task_list: List[str] = all_tasks_including_shrunk, folder: str = 'fims',
+                 probe_network: str = DEFAULT_PROBE_NETWORK):
+        self.folder: str = folder
+        if not (DATA_PATH / self.folder).exists():
+            raise ValueError(f'Gave source {self.folder}, but {DATA_PATH / self.folder} does not exist.')
+        self.probe_network = probe_network
         super().__init__(task_list=task_list, name='Fisher Embedding')
 
     def load_representations(self):
-        fim_path = DATA_PATH / 'fims'
+        fim_path = DATA_PATH / self.folder
         for task in track(list(fim_path.iterdir()), transient=True):
             _task = new_to_old(task.name)
             assert _task in self.task_list, 'invalid task name'
-            self.mapping[_task] = torch.load(fim_path / task.name / 'fim_0001.pkl', weights_only=True)
+            self.mapping[_task] = torch.load(fim_path / task.name / 'fim_0001.pkl', weights_only=True,
+                                             map_location='cpu')
         assert self.is_loaded(), 'features missing'
 
 

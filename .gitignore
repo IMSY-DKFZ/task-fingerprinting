@@ -1,3 +1,6 @@
 # features and fims are large, we will only provide the cached intermediates
 /data/features/
 /data/fims/
+/data/clip_features/
+/data/dino_features/
+/data/mae_features/
