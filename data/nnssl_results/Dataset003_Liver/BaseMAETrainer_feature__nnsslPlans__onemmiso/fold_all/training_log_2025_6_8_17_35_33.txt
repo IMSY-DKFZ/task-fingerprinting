@@ -1,0 +1,22 @@
+
+#######################################################################
+Please cite the following paper when using nnU-Net:
+Isensee, F., Jaeger, P. F., Kohl, S. A., Petersen, J., & Maier-Hein, K. H. (2021). nnU-Net: a self-configuring method for deep learning-based biomedical image segmentation. Nature methods, 18(2), 203-211.
+#######################################################################
+ 
+
+This is the configuration used by this training:
+Configuration name: onemmiso
+ {'data_identifier': 'nnsslPlans_onemmiso', 'preprocessor_name': 'DefaultPreprocessor', 'spacing_style': 'onemmiso', 'normalization_schemes': ['ZScoreNormalization'], 'use_mask_for_norm': [False], 'resampling_fn_data': 'resample_data_or_seg_to_shape', 'resampling_fn_data_kwargs': {'is_seg': False, 'order': 3, 'order_z': 0, 'force_separate_z': None}, 'resampling_fn_mask': 'resample_data_or_seg_to_shape', 'resampling_fn_mask_kwargs': {'is_seg': True, 'order': 1, 'order_z': 0, 'force_separate_z': None}, 'spacing': [1, 1, 1], 'patch_size': (160, 160, 160)} 
+ 
+These are the global plan.json settings:
+ {'dataset_name': 'Dataset003_Liver', 'plans_name': 'nnsslPlans', 'original_median_spacing_after_transp': [1.0, 0.767578125, 0.767578125], 'image_reader_writer': 'SimpleITKIO', 'transpose_forward': [0, 1, 2], 'transpose_backward': [0, 1, 2], 'experiment_planner_used': 'ExperimentPlanner'} 
+ 
+2025-06-08 17:35:55.479438:  
+2025-06-08 17:35:55.480872: Epoch 1000 
+2025-06-08 17:35:55.482161: Current learning rate: 2e-05 
+2025-06-08 18:25:14.153611: train_loss 0.1215 
+2025-06-08 18:25:14.155907: val_loss 0.0 
+2025-06-08 18:25:14.157482: Epoch time: 2958.68 s 
+2025-06-08 18:25:23.937229: Yayy! New best val loss: 0.0 
+2025-06-08 18:25:45.512717: Training done. 

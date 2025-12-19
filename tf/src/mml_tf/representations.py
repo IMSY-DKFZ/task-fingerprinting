@@ -6,11 +6,12 @@ import torch
 from rich.progress import track
 
 from mml_tf.paths import DATA_PATH
-from mml_tf.tasks import all_tasks_including_shrunk, new_to_old, train_tasks, task_infos
+from mml_tf.tasks import all_tasks_including_shrunk, new_to_old, task_infos, train_tasks
 
 Representation = Optional[Union[Set[str], torch.Tensor, np.ndarray, Tuple[np.ndarray, np.ndarray]]]
 
 DEFAULT_PROBE_NETWORK = 'resnet34'
+DEFAULT_TRAIN_SUBSET = train_tasks
 
 
 class TaskRepresentations:
@@ -68,7 +69,7 @@ class BinnedFeatureRepresentations(TaskRepresentations):
     """Torch arrays like (features x bins)"""
 
     def __init__(self, full_features: FullFeatureRepresentations, n_bins: int, min_q: float = 0.05,
-                 max_q: float = 0.95):
+                 max_q: float = 0.95, scaling_subset = DEFAULT_TRAIN_SUBSET):
         super().__init__(task_list=full_features.task_list, name=f'Binned Features (k={n_bins})')
         self.full_features = full_features
         self.n_bins = n_bins
@@ -76,10 +77,13 @@ class BinnedFeatureRepresentations(TaskRepresentations):
         self.max_q = max_q
         assert self.full_features.is_loaded(), 'load full features first'
         self.probe_network = self.full_features.probe_network
+        assert set(scaling_subset).issubset(set(self.full_features.task_list))
+        self.scaling_subset = scaling_subset
+
 
     def load_representations(self):
         # get min and max per feature
-        stacked = np.concatenate(tuple([self.full_features.mapping[t] for t in train_tasks]), axis=0)
+        stacked = np.concatenate(tuple([self.full_features.mapping[t] for t in self.scaling_subset]), axis=0).astype(np.float32)
         feature_mins = np.quantile(stacked, self.min_q, axis=0)
         feature_maxs = np.quantile(stacked, self.max_q, axis=0)
         # modifies to n_features x n_bins, entries are probabilities

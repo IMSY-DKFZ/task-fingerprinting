@@ -1,0 +1,11 @@
+,name,task_types,num_classes,num_samples,domains,imbalance_ratios,datasets,keywords,dimensions,max_resolution,min_resolution
+0,Dataset001_BrainTumour,semantic_segmentation,4,750,mri_scan,1.0,BRATS,"['brain', 'mri_scan', 'medical', 'tissue_pathology']",1,1,1
+1,Dataset002_Heart,semantic_segmentation,2,30,mri_scan,1.0,Heart,"['mri_scan', 'chest', 'anatomical structures', 'medical']",1,1,1
+2,Dataset003_Liver,semantic_segmentation,3,201,ct_scan,1.0,Liver,"['ct_scan', 'anatomical structures', 'tissue_pathology', 'medical']",1,1,1
+3,Dataset004_Hippocampus,semantic_segmentation,3,394,mri_scan,1.0,Hippocampus,"['brain', 'medical', 'mri_scan', 'anatomical structures']",1,1,1
+4,Dataset005_Prostate,semantic_segmentation,3,48,mri_scan,1.0,Prostate,"['medical', 'mri_scan', 'anatomical structures']",1,1,1
+5,Dataset006_Lung,semantic_segmentation,2,96,ct_scan,1.0,Lung,"['chest', 'medical', 'ct_scan', 'tissue_pathology']",1,1,1
+6,Dataset007_Pancreas,semantic_segmentation,3,420,ct_scan,1.0,Pancreas,"['ct_scan', 'medical', 'tissue_pathology', 'anatomical structures']",1,1,1
+7,Dataset008_HepaticVessel,semantic_segmentation,3,443,ct_scan,1.0,HepaticVessel,"['ct_scan', 'medical', 'anatomical structures', 'tissue_pathology']",1,1,1
+8,Dataset009_Spleen,semantic_segmentation,2,61,ct_scan,1.0,Spleen,"['ct_scan', 'medical', 'anatomical structures']",1,1,1
+9,Dataset010_Colon,semantic_segmentation,2,190,ct_scan,2.0,Colon,"['ct_scan', 'medical', 'anatomical structures']",2,2,2

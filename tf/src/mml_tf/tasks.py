@@ -62,7 +62,7 @@ else:
             "min_resolution",
         ]
         kwargs = {attr: {} for attr in attrs}
-        task_infos = AllTasksInfos(small_tasks=[], medium_tasks=[], large_tasks=[], **kwargs)
+        task_infos = mml.interactive.planning.AllTasksInfos(small_tasks=[], medium_tasks=[], large_tasks=[], **kwargs)
 
 
 # tasks sharing images should not be inspected together
@@ -108,14 +108,21 @@ task_groups = {
 
 # returns valid source tasks respecting phase and task_groups
 def get_valid_sources(target_task: str, min_samples: int = 1) -> List[str]:
+    """
+    You may need to override this function if you are using a different set of tasks.
+
+    :param target_task: the single target task to get legal source tasks from
+    :param min_samples: an optional requirement to restrict sources to a minimum number of samples
+    :return: a list of valid source tasks
+    """
     valid_sources = train_tasks if target_task in train_tasks else all_tasks
-    # check if target is in a group
+    # check if the target is in a group
     group_id = None
     for group_name, group_list in task_groups.items():
         if target_task in group_list:
             group_id = group_name
             break
-    # if so further reduce valid sources
+    # if so, further reduce valid sources
     if group_id:
         valid_sources = [t for t in valid_sources if t not in task_groups[group_id]]
     return [t for t in valid_sources if t != target_task and task_infos.num_samples[t] >= min_samples]

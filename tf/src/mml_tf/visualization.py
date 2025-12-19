@@ -79,10 +79,13 @@ def get_dist_measure_color(distance_measure: str, opacity: Optional[float] = Non
     :param opacity: if provided this will we used as alpha value for the opacity
     :return: color code as either "rgba(red, green, blue, alpha)" if opacity is given else "rgb(red, green, blue)"
     """
+
     return stringify(rgb_tuple=_distribute_colors(
         list_or_enum=_DISTANCE_MEASURES,
         pivots=[map_dist2printable[d] for d in
-                ['KLD-PP:NS-W:TS-100-BINS', 'KLD-PP:NS-W:SN-1000-BINS', 'KLD-PP:NS-1000-BINS']])[distance_measure],
+                ['KLD-PP:NS-W:TS-100-BINS',
+                 # 'KLD-PP:NS-W:SN-1000-BINS',
+                 'KLD-PP:NS-1000-BINS']])[distance_measure],
                      opacity=opacity)
 
 

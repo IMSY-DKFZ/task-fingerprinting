@@ -1,14 +1,17 @@
 import logging
+import subprocess
+import collections
 import warnings
 from dataclasses import dataclass
 from functools import partial
-from itertools import combinations
-from typing import List, Optional, Union, Callable, Sequence
+from itertools import product
+from typing import List, Optional, Union, Callable, Sequence, Dict
 
 import numpy as np
 import pandas as pd
 import scipy.stats
 import torch.nn.functional
+from rich.progress import track
 
 from mml_tf.aggregate import aggregate_observations, AggregateStrategy
 from mml_tf.experiments import load_experiment
@@ -19,8 +22,8 @@ from mml_tf.representations import (TaskRepresentations,
                                     MeanAndCovarianceRepresentations,
                                     FisherEmbeddingRepresentations,
                                     AveragedFeatureRepresentations,
-                                    DummyRepresentations, FullFeatureRepresentations)
-from mml_tf.tasks import get_valid_sources, source_tasks, target_tasks, all_tasks_including_shrunk, all_tasks, \
+                                    DummyRepresentations, FullFeatureRepresentations, DEFAULT_PROBE_NETWORK)
+from mml_tf.tasks import get_valid_sources, target_tasks, all_tasks_including_shrunk, all_tasks, \
     shrinkable_tasks, shrink_map, task_infos
 
 # how to best transform task infos to be used in linear model
@@ -29,14 +32,15 @@ transformed_task_infos = task_infos.get_transformed(transforms=TRANSFORMS)
 
 # some display replacements, order is relevant for some legends
 map_dist2printable = {
-    'KLD-PP:NS-W:TS-100-BINS': 'bKLD(small,target)',
-    'KLD-PP:NS-W:SN-1000-BINS': 'bKLD(large,source)',
-    'KLD-PP:NS-1000-BINS': 'bKLD(large,unweighted)',
+    'KLD-PP:NS-W:TS-100-BINS': 'bKLD (small)',
+    # 'KLD-PP:NS-W:SN-1000-BINS': 'bKLD(large,source)',
+    'KLD-PP:NS-1000-BINS': 'bKLD (large)',
+    'MMD-geo-sinkhorn-0.01': 'Sinkhorn Divergence',
     'SEMANTIC': 'Manual',
     'FED': 'FED',
     'FID': 'FID',
-    'P2L': 'P2L (w samples)',
-    'KLD-PP:NN': 'P2L (w/o samples)',
+    'P2L': 'P2L (w size)',
+    'KLD-PP:NN': 'P2L (w/o size)',
     'VDNA-PP:NN-1000-BINS': 'VDNA',
     'no transfer': 'No transfer',  # no transfer is a dummy entry
 }
@@ -64,10 +68,16 @@ class HyperParameter:
 
 
 class TaskDistances:
+
     def __init__(self,
                  representations: TaskRepresentations,
                  name: str,
+                 # below will be forwarded as kwargs
                  hp: Optional[HyperParameter] = None,
+                 source_tasks: Sequence[str] = all_tasks,
+                 target_tasks: Sequence[str] = all_tasks_including_shrunk,
+                 apply_replace_shrunk_tasks: bool = True,
+                 expected_nulls: int = len(shrinkable_tasks) + len(all_tasks),  # t to t_shrunk and t_shrunk to t_shrunk
                  zscore_axis: Optional[int] = None,
                  cache: bool = True):
         """
@@ -76,10 +86,18 @@ class TaskDistances:
         :param TaskRepresentations representations: required representations (fingerprints)
         :param str name: identifier of the distances
         :param HyperParameter hp: optional HyperParameter to modify the task distances
+        :param Sequence[str] source_tasks: source tasks
+        :param Sequence[str] target_tasks: target tasks
+        :param bool apply_replace_shrunk_tasks: whether to apply replace shrunk tasks, this is specific to our exps
+        :param int expected_nulls: number of expected nulls to catch incomplete/failed computations
         :param bool cache: whether to use the caching mechanism (encouraged for unique name)
         """
         self.rep = representations
-        self.df = pd.DataFrame(columns=all_tasks_including_shrunk, index=all_tasks, dtype=float)
+        self._source_tasks = source_tasks
+        self._target_tasks = target_tasks
+        self._expected_nulls = expected_nulls
+        self._apply_replace_shrunk_tasks = apply_replace_shrunk_tasks
+        self.df = pd.DataFrame(columns=list(self._target_tasks), index=list(self._source_tasks), dtype=float)
         self.name = name
         self.hp = hp
         self.cache = cache
@@ -90,14 +108,15 @@ class TaskDistances:
         """Load distances and prepare for usage."""
         df = self.calc()
         df.replace([np.inf, -np.inf], np.nan, inplace=True)
-        if df.isnull().sum().sum() > (len(shrinkable_tasks) + len(all_tasks)):
+        if df.isnull().sum().sum() > self._expected_nulls:
             warnings.warn(f'{self.name} has unexpected null values ({df.isnull().sum().sum()})')
-        self._replace_shrunk_tasks(df)
+        if self._apply_replace_shrunk_tasks:
+            self._replace_shrunk_tasks(df)
         return self._transform_distance(df, self.zscore_axis)
 
     def calc(self) -> pd.DataFrame:
         """Calculate raw distances, will be cached."""
-        # define cache path based on distance name
+        # define a cache path based on distance name
         df_path = CACHE_PATH / 'distances' / (self.name + '.csv')
         # if cached reuse
         if df_path.exists() and self.cache:
@@ -144,9 +163,9 @@ def get_affinity_df(distances: TaskDistances):
     :param distances: task distances instance
     :return: a dataframe where .at[source,target] describes transfer affinity (higher is better) from source to target
     """
-    df = distances.df.copy().loc[list(source_tasks)]
+    df = distances.df
     if distances.hp:
-        df = df.apply(
+        df = df.copy().apply(
             func=lambda x: distances.hp.sim * x
                            + distances.hp.sam * transformed_task_infos.num_samples[x.name]
                            + distances.hp.cls * transformed_task_infos.num_classes[x.name]
@@ -216,18 +235,23 @@ def get_variety(distances: TaskDistances, shrunk: bool = False):
 ##################################################
 
 class EnsembleDistances(TaskDistances):
-    """Ensemble other task distances."""
+    """Ensemble some other task distances."""
 
     def __init__(self, base_dists: Sequence[TaskDistances], name: str, use_raws: bool = True,
                  weights: Optional[Sequence[float]] = None):
         assert len(base_dists) >= 2
+        _source_tasks = base_dists[0]._source_tasks
+        _target_tasks = base_dists[0]._target_tasks
+        assert all([dist._source_tasks == _source_tasks for dist in base_dists])
+        assert all([dist._target_tasks == _target_tasks for dist in base_dists])
         self.base_dists = base_dists
         self.use_raws = use_raws
         if weights is None:
             weights = [1.0] * len(base_dists)
         assert len(weights) == len(base_dists)
         self.weights = weights
-        super().__init__(representations=DummyRepresentations(), name=name, cache=False)
+        super().__init__(representations=DummyRepresentations(), name=name, cache=False, source_tasks=_source_tasks,
+                         target_tasks=_target_tasks)
 
     def _calc_impl(self) -> pd.DataFrame:
         if self.use_raws:
@@ -247,29 +271,36 @@ class EnsembleDistances(TaskDistances):
 class SemanticDistances(TaskDistances):
     """Mimic manual source task selection by using semantic tags (and tiebreakers)."""
 
-    def __init__(self, representations: TagBasedRepresentations):
-        super().__init__(representations=representations, name='SEMANTIC')
+    def __init__(self, representations: TagBasedRepresentations, use_tiebreakers: bool = True, **kwargs):
+        self.use_tiebreakers = use_tiebreakers
+        name = 'SEMANTIC'
+        if not use_tiebreakers:
+            name += '-TIES'
+        super().__init__(representations=representations, name=name, **kwargs)
 
     def _calc_impl(self) -> pd.DataFrame:
         df = self.df.copy()
-        for s, t in combinations(all_tasks, 2):
+
+        for s, t in track(product(self._source_tasks, self._target_tasks), transient=True, total=len(self._source_tasks) * len(self._target_tasks)):
+            # shortcut self-distance
+            if s == t:
+                df.at[s, t] = 0.0
+                continue
+            # shortcut symmetric distances
+            if s in self._target_tasks and t in self._source_tasks and not pd.isnull(df.at[t, s]):
+                df.at[s, t] = df.at[t, s]
+                continue
             union = self.rep.mapping[s].union(self.rep.mapping[t])
             intersection = self.rep.mapping[s].intersection(self.rep.mapping[t])
             df.at[s, t] = 1 - (len(intersection) / len(union))
-            df.at[t, s] = 1 - (len(intersection) / len(union))
-            if t in shrinkable_tasks:
-                df.at[s, shrink_map[t]] = 1 - (len(intersection) / len(union))
-            if s in shrinkable_tasks:
-                df.at[t, shrink_map[s]] = 1 - (len(intersection) / len(union))
-        for task in df.index:
-            df.at[task, task] = 0.0
-        size_ranks = pd.Series(transformed_task_infos.num_samples).rank()
-        dims_ranks = pd.Series(task_infos.dimensions).rank()
-        for ix, t in enumerate(all_tasks):
-            # slight uniqueness shift by source task size and data dimension
-            df.loc[t] -= 0.001 * size_ranks[t]
-            df.loc[t] -= 0.00001 * dims_ranks[t]
-            df.loc[t] -= 0.0000001 * ix  # finally add some "random" selector
+        if self.use_tiebreakers:
+            size_ranks = pd.Series(transformed_task_infos.num_samples).rank()
+            dims_ranks = pd.Series(task_infos.dimensions).rank()
+            for ix, t in enumerate(self._source_tasks):
+                # slight uniqueness shift by source task size and data dimension
+                df.loc[t] -= 0.001 * size_ranks[t]
+                df.loc[t] -= 0.00001 * dims_ranks[t]
+                df.loc[t] -= 0.0000001 * ix  # finally add some "random" selector
         return df
 
 
@@ -316,7 +347,7 @@ class FeaturesDistances(TaskDistances):
                  MeanAndCovarianceRepresentations],
                  name: str,
                  is_symmetric: bool,
-                 cache: bool = True):
+                 **kwargs):
         """
         Generic task distances for AverageFeatures and BinnedFeatures.
 
@@ -326,9 +357,11 @@ class FeaturesDistances(TaskDistances):
         :param bool cache: whether to use the caching mechanism (encouraged for unique name)
         """
         self.is_symmetric = is_symmetric
+        if representations.probe_network != DEFAULT_PROBE_NETWORK:
+            name += '-' + representations.probe_network
         if isinstance(representations, MeanAndCovarianceRepresentations):
             assert name.startswith('FID')
-        super().__init__(representations=representations, name=name, cache=cache)
+        super().__init__(representations=representations, name=name, **kwargs)
 
     def _calc_impl(self) -> pd.DataFrame:
         """Generic computation scheme for features based task distances."""
@@ -337,19 +370,16 @@ class FeaturesDistances(TaskDistances):
                    [AveragedFeatureRepresentations, BinnedFeatureRepresentations, MeanAndCovarianceRepresentations])
         if not isinstance(self.rep, MeanAndCovarianceRepresentations):
             self.rep.to_cuda()
-        for s, t in combinations(all_tasks, 2):
-            df.at[s, t] = self._calc_single(s_task=s, t_task=t)
-            if self.is_symmetric:
-                # shortcut symmetric distances
-                df.at[t, s] = df.at[s, t]
+        for s, t in product(self._source_tasks, self._target_tasks):
+            # shortcut self-distance
+            if s == t:
+                df.at[s, t] = 0.0
+                continue
+            # shortcut symmetric distances
+            if self.is_symmetric and s in self._target_tasks and t in self._source_tasks and not pd.isnull(df.at[t, s]):
+                df.at[s, t] = df.at[t, s]
             else:
-                df.at[t, s] = self._calc_single(s_task=t, t_task=s)
-            if t in shrinkable_tasks:
-                df.at[s, shrink_map[t]] = self._calc_single(s_task=s, t_task=shrink_map[t])
-            if s in shrinkable_tasks:
-                df.at[t, shrink_map[s]] = self._calc_single(s_task=t, t_task=shrink_map[s])
-        for task in df.index:
-            df.at[task, task] = 0.0
+                df.at[s, t] = self._calc_single(s_task=s, t_task=t)
         if not isinstance(self.rep, MeanAndCovarianceRepresentations):
             self.rep.to_cpu()
         return df
@@ -372,8 +402,8 @@ class PPandWeighFeaturesDistances(FeaturesDistances):
                  weighing_by: Optional[str] = None,
                  weights_rep: Optional[Union[AveragedFeatureRepresentations, torch.Tensor]] = None,
                  weights_pp: str = 'wo',
-                 cache: bool = True,
-                 seed: Optional[int] = None):
+                 seed: Optional[int] = None,
+                 **kwargs):
         """
         More advanced version of features distances - capable of preprocessing and weighing features.
 
@@ -419,7 +449,7 @@ class PPandWeighFeaturesDistances(FeaturesDistances):
             name += f'-{representations.n_bins}-BINS'
         if seed is not None:
             name += f'-{representations.full_features.n_samples}-SAMPLES-{seed}-SEED'
-        super().__init__(representations=representations, name=name, is_symmetric=is_symmetric, cache=cache)
+        super().__init__(representations=representations, name=name, is_symmetric=is_symmetric, **kwargs)
 
     @staticmethod
     def norm_pp(t: torch.Tensor) -> torch.Tensor:
@@ -483,8 +513,8 @@ class KLDDistances(PPandWeighFeaturesDistances):
                  weights_pp: str = 'wo',
                  clip: bool = False,
                  invert: bool = False,  # True means target -> q and source -> p in KLD calculation
-                 cache: bool = True,
-                 seed: Optional[int] = None):
+                 seed: Optional[int] = None,
+                 **kwargs):
         base_name = 'KLD'
         self.clip = clip
         if self.clip:
@@ -494,7 +524,7 @@ class KLDDistances(PPandWeighFeaturesDistances):
             base_name += '-I'
         super().__init__(representations=representations, base_name=base_name, is_symmetric=False, target_pp=target_pp,
                          source_pp=source_pp, alpha=alpha, weighing_by=weighing_by, weights_rep=weights_rep,
-                         weights_pp=weights_pp, cache=cache, seed=seed)
+                         weights_pp=weights_pp, seed=seed, **kwargs)
 
     def _calc_single(self, s_task: str, t_task: str) -> float:
         p = self.target_pp(self.rep.mapping[t_task])
@@ -531,10 +561,10 @@ class KLDDistances(PPandWeighFeaturesDistances):
 class P2LDistances(KLDDistances):
     """As special variant of KLD distance that uses a hyperparameter modification. See https://arxiv.org/abs/1908.07630"""
 
-    def __init__(self, representations: AveragedFeatureRepresentations):
+    def __init__(self, representations: AveragedFeatureRepresentations, **kwargs):
         """Note that this is cached with the name KLD-PP:NN (!) - hyperparameters are disentangled from caching"""
         super().__init__(representations=representations, target_pp='norm', source_pp='norm', weighing_by=None,
-                         weights_rep=None, weights_pp='wo', clip=False, cache=True, seed=None)
+                         weights_rep=None, weights_pp='wo', clip=False, seed=None, **kwargs)
         self.hp = HyperParameter(sim=1.5, sam=1.)
         self.name = 'P2L'
 
@@ -549,8 +579,8 @@ class JSDistances(PPandWeighFeaturesDistances):
                  weights_rep: Optional[Union[AveragedFeatureRepresentations, torch.Tensor]] = None,
                  weights_pp: str = 'wo',
                  clip: bool = False,
-                 cache: bool = True,
-                 seed: Optional[int] = None):
+                 seed: Optional[int] = None,
+                 **kwargs):
         base_name = 'JS'
         self.clip = clip
         if self.clip:
@@ -559,7 +589,7 @@ class JSDistances(PPandWeighFeaturesDistances):
                          is_symmetric=False,  # only symmetric if weighing is non task dep.
                          target_pp='norm',
                          source_pp='norm', alpha=alpha, weighing_by=weighing_by, weights_rep=weights_rep,
-                         weights_pp=weights_pp, cache=cache, seed=seed)
+                         weights_pp=weights_pp, seed=seed, **kwargs)
 
     def _calc_single(self, s_task: str, t_task: str) -> float:
         p = self.target_pp(self.rep.mapping[t_task])
@@ -582,7 +612,7 @@ class EMDDistances(PPandWeighFeaturesDistances):
                  weighing_by: Optional[str] = None,
                  weights_rep: Optional[Union[AveragedFeatureRepresentations, torch.Tensor]] = None,
                  weights_pp: str = 'wo',
-                 cache: bool = True):
+                 **kwargs):
         is_symmetric = weighing_by in [None, 'provided', 'both']
         source_pp = 'soft' if soft_features else 'norm'
         target_pp = 'soft' if soft_features else 'norm'
@@ -592,7 +622,7 @@ class EMDDistances(PPandWeighFeaturesDistances):
             base_name = 'VDNA'
         super().__init__(representations=representations, base_name=base_name, is_symmetric=is_symmetric,
                          source_pp=source_pp, target_pp=target_pp, weighing_by=weighing_by, weights_rep=weights_rep,
-                         weights_pp=weights_pp, cache=cache)
+                         weights_pp=weights_pp, **kwargs)
 
     def _calc_single(self, s_task: str, t_task: str) -> float:
         diff = self.source_pp(self.rep.mapping[s_task]) - self.target_pp(self.rep.mapping[t_task])
@@ -612,14 +642,16 @@ class COSDistances(PPandWeighFeaturesDistances):
 
     def __init__(self,
                  representations: Union[BinnedFeatureRepresentations, AveragedFeatureRepresentations],
-                 soft_features: bool, seed: Optional[int] = None):
+                 soft_features: bool,
+                 seed: Optional[int] = None,
+                 **kwargs):
         source_pp = 'soft' if soft_features else 'norm'
         target_pp = 'soft' if soft_features else 'norm'
         assert isinstance(representations, AveragedFeatureRepresentations) or isinstance(representations,
                                                                                          BinnedFeatureRepresentations)
         self.n_features = representations.full_features.n_features
         super().__init__(representations=representations, is_symmetric=True, base_name='COS', source_pp=source_pp,
-                         target_pp=target_pp, weighing_by=None, seed=seed)
+                         target_pp=target_pp, weighing_by=None, seed=seed, **kwargs)
 
     def _calc_single(self, s_task: str, t_task: str) -> float:
         s = self.target_pp(self.rep.mapping[t_task])
@@ -640,7 +672,7 @@ class LNormDistances(PPandWeighFeaturesDistances):
                  weights_rep: Optional[Union[AveragedFeatureRepresentations, torch.Tensor]] = None,
                  weights_pp: str = 'wo',
                  seed: Optional[int] = None,
-                 cache: bool = True):
+                 **kwargs):
         base_name = f'L-{p}-NORM'
         self.p = p
         if isinstance(representations, AveragedFeatureRepresentations):
@@ -652,7 +684,7 @@ class LNormDistances(PPandWeighFeaturesDistances):
         is_symmetric = weighing_by in [None, 'provided', 'both']
         super().__init__(representations=representations, is_symmetric=is_symmetric, base_name=base_name,
                          source_pp=source_pp, target_pp=target_pp, weighing_by=weighing_by, weights_rep=weights_rep,
-                         weights_pp=weights_pp, seed=seed, cache=cache)
+                         weights_pp=weights_pp, seed=seed, **kwargs)
 
     def _calc_single(self, s_task: str, t_task: str) -> float:
         diff = self.source_pp(self.rep.mapping[s_task]) - self.target_pp(self.rep.mapping[t_task])
@@ -669,11 +701,11 @@ class LNormDistances(PPandWeighFeaturesDistances):
 class LogDistances(FeaturesDistances):
     """Compute distance in log space."""
 
-    def __init__(self, representations: AveragedFeatureRepresentations, w_s: int = 0, w_t: int = 0):
+    def __init__(self, representations: AveragedFeatureRepresentations, w_s: int = 0, w_t: int = 0, **kwargs):
         self.w_s = w_s
         self.w_t = w_t
         super().__init__(representations=representations, name=f'LOG-S:{self.w_s}-T:{self.w_t}', is_symmetric=False,
-                         cache=True)
+                         **kwargs)
 
     def _calc_single(self, s_task: str, t_task: str) -> float:
         s = self.rep.mapping[s_task]
@@ -686,11 +718,11 @@ class LogDistances(FeaturesDistances):
 class ExpDistances(FeaturesDistances):
     """Compute distance in exp space."""
 
-    def __init__(self, representations: AveragedFeatureRepresentations, w_s: int = 0, w_t: int = 0):
+    def __init__(self, representations: AveragedFeatureRepresentations, w_s: int = 0, w_t: int = 0, **kwargs):
         self.w_s = w_s
         self.w_t = w_t
         super().__init__(representations=representations, name=f'EXP-S:{self.w_s}-T:{self.w_t}', is_symmetric=False,
-                         cache=True)
+                         **kwargs)
 
     def _calc_single(self, s_task: str, t_task: str) -> float:
         s = self.rep.mapping[s_task]
@@ -703,8 +735,8 @@ class ExpDistances(FeaturesDistances):
 class FIDDistances(FeaturesDistances):
     """Fréchet Inception Distance"""
 
-    def __init__(self, representations: MeanAndCovarianceRepresentations):
-        super().__init__(representations=representations, name='FID', is_symmetric=True, cache=True)
+    def __init__(self, representations: MeanAndCovarianceRepresentations, **kwargs):
+        super().__init__(representations=representations, name='FID', is_symmetric=True, **kwargs)
 
     def _calc_single(self, s_task: str, t_task: str) -> float:
         return self.fid(self.rep.mapping[s_task], self.rep.mapping[t_task])
@@ -742,49 +774,71 @@ class FIDDistances(FeaturesDistances):
 class GenericFEDDistances(TaskDistances):
     """Fisher Embedding Distances. See https://doi.org/10.1007/978-3-030-87202-1_42"""
 
-    def __init__(self, representations: FisherEmbeddingRepresentations, layers: List[str], name: str):
+    def __init__(self, representations: FisherEmbeddingRepresentations, layers: List[str], name: str, **kwargs):
         self.layers = layers
-        super().__init__(representations=representations, name=name)
+        if representations.probe_network != DEFAULT_PROBE_NETWORK:
+            name += '-' + representations.probe_network
+        super().__init__(representations=representations, name=name, **kwargs)
 
     def _calc_impl(self) -> pd.DataFrame:
         df = self.df.copy()
         embeddings = {task: torch.cat(
             tuple([tens.view(-1) for lay, tens in self.rep.mapping[task].items() if lay in self.layers])) for task in
             self.rep.task_list}
-        for s, t in combinations(all_tasks, 2):
-            df.at[s, t] = 1. - torch.nn.functional.cosine_similarity(embeddings[s], embeddings[t], dim=0).item()
-            df.at[t, s] = df.at[s, t]  # fed is symmetric
-            if t in shrinkable_tasks:
-                df.at[s, shrink_map[t]] = 1 - torch.nn.functional.cosine_similarity(
-                    embeddings[s], embeddings[shrink_map[t]], dim=0).item()
-            if s in shrinkable_tasks:
-                df.at[t, shrink_map[s]] = 1 - torch.nn.functional.cosine_similarity(
-                    embeddings[t], embeddings[shrink_map[s]], dim=0).item()
-        for task in df.index:
-            df.at[task, task] = 0.0
+        # hold a subset of embeddings on the GPU, use a double ended queue
+        gpu_manager = LastRecentlyUsedGPUManager(embeddings=embeddings, max_gpu_usage=0.9)
+
+        for s, t in track(product(self._source_tasks, self._target_tasks), transient=True, total=len(self._source_tasks) * len(self._target_tasks)):
+            # shortcut self-distance
+            if s == t:
+                df.at[s, t] = 0.0
+                continue
+            # shortcut symmetric distances
+            if s in self._target_tasks and t in self._source_tasks and not pd.isnull(df.at[t, s]):
+                df.at[s, t] = df.at[t, s]
+                continue
+            emb_s = gpu_manager.request(s)
+            emb_t = gpu_manager.request(t)
+            df.at[s, t] = 1. - torch.nn.functional.cosine_similarity(emb_s, emb_t, dim=0).item()
         return df
 
 
 class MMDDistances(TaskDistances):
-    """Maximum Mean Discrepancy distance (using a cauchy kernel as explained in
+    """Maximum Mean Discrepancy distance (using a variety of kernels, some explained in
     https://doi.org/10.1007/978-3-030-87202-1_42)."""
 
-    def __init__(self, representations: FullFeatureRepresentations, blur: float = 0.05):
+    def __init__(self, representations: FullFeatureRepresentations, kernel: str = 'cauchy', blur: float = 0.05, **kwargs):
         self.blur = blur
-        super().__init__(representations=representations, name=f'MMD-{representations.n_samples}-SAMPLES')
+        self.kernel = kernel
+        if kernel.startswith('geo'):
+            _kernel = kernel.split('-')[1]  # extract kernel (must be given as geo-INTERNAL)
+            from geomloss import SamplesLoss
+            self.kernel_func = SamplesLoss(loss=_kernel, blur=blur, backend='tensorized', scaling=0.1)
+        else:
+            self.kernel_func = {'cauchy': self.mmd_cauchy,
+                                'gaussian': self.mmd_gaussian,
+                                'coral': self.mmd_coral}[self.kernel]
+        name = f'MMD-{self.kernel}-{self.blur}'
+        if representations.probe_network != DEFAULT_PROBE_NETWORK:
+            name += '-' + representations.probe_network
+        super().__init__(representations=representations, name=name, **kwargs)
 
     def _calc_impl(self) -> pd.DataFrame:
-        df = self.df.copy()
-        reps = {task: torch.as_tensor(features).to(torch.device('cuda')) for task, features in self.rep.mapping.items()}
-        for s, t in combinations(all_tasks, 2):
-            df.at[s, t] = torch.mean(self.mmd_cauchy(reps[s], reps[t]).view(-1)).item()
-            df.at[t, s] = df.at[s, t]  # mmd is symmetric
-            if t in shrinkable_tasks:
-                df.at[s, shrink_map[t]] = torch.mean(self.mmd_cauchy(reps[s], reps[shrink_map[t]]).view(-1)).item()
-            if s in shrinkable_tasks:
-                df.at[t, shrink_map[s]] = torch.mean(self.mmd_cauchy(reps[t], reps[shrink_map[s]]).view(-1)).item()
-        for task in df.index:
-            df.at[task, task] = 0.0
+        with torch.no_grad():
+            df = self.df.copy()
+            reps = {task: torch.as_tensor(features, dtype=torch.double).to(torch.device('cuda')) for task, features in
+                    self.rep.mapping.items()}
+            for s, t in track(product(self._source_tasks, self._target_tasks), transient=True,
+                              total=len(self._source_tasks) * len(self._target_tasks)):
+                # shortcut self-distance
+                if s == t:
+                    df.at[s, t] = 0.0
+                    continue
+                # shortcut symmetric distances
+                if s in self._target_tasks and t in self._source_tasks and not pd.isnull(df.at[t, s]):
+                    df.at[s, t] = df.at[t, s]
+                    continue
+                df.at[s, t] = torch.mean(self.kernel_func(reps[s], reps[t]).view(-1)).item()
         return df
 
     def mmd_cauchy(self, x: torch.Tensor, y: torch.Tensor) -> torch.Tensor:
@@ -796,6 +850,45 @@ class MMDDistances(TaskDistances):
         YY = (self.blur * (self.blur + (ry.t() + ry - 2. * yy)) ** -1)
         XY = (self.blur * (self.blur + (rx.t() + ry - 2. * zz)) ** -1)
         return XX + YY - 2. * XY
+
+    def mmd_gaussian(self, x: torch.Tensor, y: torch.Tensor) -> torch.Tensor:
+        """https://github.com/facebookresearch/DomainBed/blob/main/domainbed/algorithms.py#L973"""
+
+        def my_cdist(x1, x2):
+            x1_norm = x1.pow(2).sum(dim=-1, keepdim=True)
+            x2_norm = x2.pow(2).sum(dim=-1, keepdim=True)
+            res = torch.addmm(x2_norm.transpose(-2, -1),
+                              x1,
+                              x2.transpose(-2, -1), alpha=-2).add_(x1_norm)
+            return res.clamp_min_(1e-30)
+
+        def gaussian_kernel(x, y, gamma=[0.001, 0.01, 0.1, 1, 10, 100, 1000]):
+            D = my_cdist(x, y)
+            K = torch.zeros_like(D)
+
+            for g in gamma:
+                K.add_(torch.exp(D.mul(-g)))
+
+            return K
+
+        Kxx = gaussian_kernel(x, x).mean()
+        Kyy = gaussian_kernel(y, y).mean()
+        Kxy = gaussian_kernel(x, y).mean()
+        return Kxx + Kyy - 2 * Kxy
+
+    def mmd_coral(self, x: torch.Tensor, y: torch.Tensor) -> torch.Tensor:
+        """https://github.com/facebookresearch/DomainBed/blob/main/domainbed/algorithms.py#L1011"""
+        mean_x = x.mean(0, keepdim=True)
+        mean_y = y.mean(0, keepdim=True)
+        cent_x = x - mean_x
+        cent_y = y - mean_y
+        cova_x = (cent_x.t() @ cent_x) / (len(x) - 1)
+        cova_y = (cent_y.t() @ cent_y) / (len(y) - 1)
+
+        mean_diff = (mean_x - mean_y).pow(2).mean()
+        cova_diff = (cova_x - cova_y).pow(2).mean()
+
+        return mean_diff + cova_diff
 
 
 class LoadMMLComputedDistances(TaskDistances):
@@ -814,6 +907,87 @@ class LoadCachedDistances(TaskDistances):
 
     def __init__(self, name: str, hp: Optional[HyperParameter] = None, zscore_axis: Optional[int] = None):
         super().__init__(representations=DummyRepresentations(), name=name, hp=hp, zscore_axis=zscore_axis)
+        self._source_tasks = self.df.index.tolist()
+        self._target_tasks = self.df.columns.tolist()
 
     def _calc_impl(self):
         raise RuntimeError(f'{self.name} is not cached yet!')
+
+
+class LastRecentlyUsedGPUManager:
+    def __init__(self, embeddings: Dict[str, torch.Tensor], max_gpu_usage: float = 0.9, device_id: int = 0):
+        """Keep track of embeddings to be placed on GPU."""
+        breakpoint()
+        if len(embeddings) <= 1:
+            raise ValueError('No need for GPUManager on small embeddings.')
+        self.embeddings = embeddings
+        if max_gpu_usage >= 1 or max_gpu_usage <= 0:
+            raise ValueError('max_gpu_usage must be within (0,1) - excluding borders!')
+        self.max_usage = max_gpu_usage
+        if not torch.cuda.device_count() > device_id:
+            raise ValueError(f'Only {torch.cuda.device_count()} GPUs available, but requested id {device_id}.')
+        with torch.device(f'cuda:{device_id}'):
+            if not torch.cuda.is_available():
+                raise RuntimeError(f'Was not able to access GPU {device_id}!')
+        self.device_id = device_id
+        self.device = torch.device(f'cuda:{device_id}')
+        self.size = self.test_size()
+        # deque will hold task ids, recently used ids will be inserted right and consumed from left
+        self.deque = collections.deque()
+        # container will hold task id to GPU tensor mapping, similar to self.embeddings, but restricted and on GPU
+        self.container: Dict[str, torch.Tensor] = {}
+
+    @staticmethod
+    def get_gpu_vram_usage(device_id: int = 0) -> float:
+        """Measures the current relative GPU VRAM usage."""
+        tot_cmd = ["nvidia-smi", "--query-gpu=memory.total", "--format=csv,noheader,nounits"]
+        free_cmd = ["nvidia-smi", "--query-gpu=memory.free", "--format=csv,noheader,nounits"]
+        try:
+            total_mem = subprocess.run(tot_cmd, check=True, stdout=subprocess.PIPE).stdout.decode('ascii').split('\n')
+            free_mem = subprocess.run(free_cmd, check=True, stdout=subprocess.PIPE).stdout.decode('ascii').split('\n')
+        except subprocess.CalledProcessError:
+            raise RuntimeError(f'Cannot query GPU memory. Is a recent nvidia driver installed?')
+        if not len(total_mem) > device_id or not len(free_mem) > device_id:
+            raise ValueError(
+                f'Could not query device {device_id} (zero-indexed), only found {len(total_mem)} and {len(free_mem)} '
+                f'devices')
+        return int(free_mem[device_id]) / int(total_mem[device_id])
+
+    def test_size(self) -> int:
+        """Determines the available size of the deque."""
+        if self.get_gpu_vram_usage(device_id=self.device_id) > self.max_usage:
+            raise RuntimeError('GPU already to busy. Reduce load or increase max_gpu_usage.')
+        gpu_vals = set()
+        for k, v in self.embeddings.items():
+            gpu_vals.add(v.to(self.device))
+            if self.get_gpu_vram_usage(device_id=self.device_id) > self.max_usage:
+                break
+        # can fit all members in case the limit is not reached, otherwise substract one to stay within limit
+        size= len(gpu_vals)-1 if self.get_gpu_vram_usage(device_id=self.device_id) > self.max_usage else len(gpu_vals)
+        # make sure to free GPU
+        del gpu_vals
+        # check if any element fits, this happens if the first element directly exceeds GPU limits
+        if size == 0:
+            raise RuntimeError('GPU already to busy. Reduce load or increase max_gpu_usage.')
+        return size
+
+    def request(self, member: str) -> torch.Tensor:
+        """Requests a member of the embeddings to be put on GPU. Might release an unused previous member."""
+        # directly return any available member
+        if member in self.container:
+            # update deque
+            self.deque.remove(member)
+            self.deque.append(member)
+            return self.container[member]
+        # safety check to ensure valid member
+        if member not in self.embeddings:
+            raise ValueError(f'{member} is not present in embeddings.')
+        # check if we need to consume
+        if len(self.deque) >= self.size:
+            to_remove = self.deque.popleft()
+            del self.container[to_remove]
+        self.deque.append(member)
+        self.container[member] = self.embeddings[member].to(self.device)
+        return self.container[member]
+
+
